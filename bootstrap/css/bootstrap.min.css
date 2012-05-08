@@ -794,4 +794,6 @@ footer.footer{border-top:1px solid #1c1e22;}footer.footer p{color:#757c82;}
 .pull-left{float:left;}
 .hide{display:none;}
 .show{display:block;}
-.invisible{visibility:hidden;}
+.invisible{visibility:hidden;}.
+wrapper{min-height: 100%;height: auto !important;height: 100%;margin: 0 auto -37px;}
+.footer, .push{height: 37px; }
