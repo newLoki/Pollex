@@ -1,7 +1,6 @@
 {
     url: '/polls/1337/questions',
     parameters: {},
-    results: 1,
     data: [{
             poll: 1337,
             type: {

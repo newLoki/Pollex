@@ -1,7 +1,6 @@
 {
     url: '/polls',
     parameters: {},
-    results: 0,
     data: {
         name: 'foo',
         author: 'user',
