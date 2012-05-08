@@ -1,40 +1,13 @@
-#Modules
- * __/polls__ - handle polls, create, get and delete poll
- * __/polls/{id}/questions__ - handle questions for polls
- * __/polls/{id}/questions/{id}/answers__ - handle answers for this question
- * __/users__ -  handle users
- * __/types__ - handle question types, this are used for question templates (@todo, in first step, only use free text and rating types, hardcoded)
-
-##On Error
-<<[documentation/error.markdown]
-
-##Authentification
-<<[documentation/authentification.markdown]
-
-##Polls
-Handles polls.
-<<[documentation/polls.markdown]
-
-##Questions
-<<[documentation/questions.markdown]
-
-##Answers
-<<[documentation/answers.markdown]
-
-##Users
-Handles users
-<<[documentation/users.markdown]
-
-##Groups
-<<[documentation/groups.markdown]
-
-##Types
-Types are templates for questions.
-<<[documentation/types.markdown]
-
-
+Actuall this project is only an unfinished API documentation.
+But the goal is to bring it up to a generic tool for creating and analyzing polls.
+Because of the fact, that this project is only a __RESTfull__ interface we need
+some help from peoples which have ideas for nice frontend.
+In the documentation folder are mockups for the most actions you can perform on this API,
+so first client should be simple to realize, which meens, you are free to do this ;)
+The full documentation, wrapped in a nice design, is availeaable under (http://newloki.github.com/Polex).
 
 ##TODO
+###Doku
 * data formats
 * on error
 * numFound for each items
