@@ -1,3 +1,10 @@
+---
+layout: default
+title: Questions Controller
+summary: API Documentation for questions controller
+categories: api
+
+---
 ###GET
 Return all questions on given poll, count is _rows_ and start is on _offset_, which is 0 by default
 ####Parameters

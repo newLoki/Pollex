@@ -1,3 +1,11 @@
+---
+layout: default
+title: Types Controller
+summary: API Documentation for types controller
+categories: api
+
+---
+
 Each type holds some information about field representation and validation rules.
 ###Free text
 Use for free text answers.

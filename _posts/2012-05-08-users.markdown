@@ -1,3 +1,10 @@
+---
+layout: default
+title: Users Controller
+summary: API Documentation for users controller
+categories: api
+
+---
 ###GET
 Retun a list of users, limited by _rows_ and started by _offset_
 ####Parameters

@@ -1,0 +1,8 @@
+---
+layout: default
+title: Groups Controller
+summary: API Documentation for groups controller
+categories: api
+
+---
+/users/groups

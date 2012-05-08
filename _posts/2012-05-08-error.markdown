@@ -1,0 +1,7 @@
+---
+layout: default
+title: Error
+summary: What happens, if an error occured
+categories: api
+
+---

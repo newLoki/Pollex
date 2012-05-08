@@ -1,0 +1,3 @@
+markdown:    rdiscount
+permalink:   /:categories/:title
+pygments: true

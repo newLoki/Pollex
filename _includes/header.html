@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>{% if page.title %}{{ page.title }}{% endif %}</title>
+	<!-- Meta -->
+	{% if page.meta_keywords %}<meta name="keywords" content="{{ page.meta_keywords }}" />{% endif %}
+	{% if page.meta_description %}<meta name="description" content="{{ page.meta_description }}" />{% endif %}
+	<!-- CSS -->
+	<link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen" />
+</head>
+<body>
+	<header>
+		<nav>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/api/">API</a></li>
+			</ul>
+		</nav>
+	</header>
+<div id="wrapper">

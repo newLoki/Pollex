@@ -1,3 +1,11 @@
+---
+layout: default
+title: Answers Controller
+summary: API Documentation for answers controller
+categories: api
+
+---
+
 ###GET
 Get an answers for given question, identified by _id_.
 If no _id_ is given, it return all answers, limited by _rows_ and starting by _offset_.
