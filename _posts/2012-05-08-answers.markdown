@@ -14,6 +14,7 @@ If no _id_ is given, it return all answers, limited by _rows_ and starting by _o
 * rows - how many entries should return, only necessary if no _id | name_ where given.
 * offset - where to start the query, only necessary if no _id | name_ where given.
 
+
 _**[GET /polls/1337/questions/1/answers?rows=2&offset=0](https://github.com/newLoki/Pollex/blob/master/documentation/answers/get.index.json.html.html)**_
 
 _**[GET /polls/1337/questions/1/answers/1](https://github.com/newLoki/Pollex/blob/master/documentation/answers/get.1.json.html.html)**_
@@ -22,6 +23,7 @@ _**[GET /polls/1337/questions/1/answers/1](https://github.com/newLoki/Pollex/blo
 ###POST
 Creates a new answer for this question.
 
+
 _**[POST /polls/1337/questions/1/answers - REQUEST](https://github.com/newLoki/Pollex/blob/master/documentation/answers/post.request.json.html.html)**_
 
 _**[POST /polls/1337/questions/1/answers - RESPONSE](https://github.com/newLoki/Pollex/blob/master/documentation/answers/post.response.json.html.html)**_
@@ -29,7 +31,9 @@ _**[POST /polls/1337/questions/1/answers - RESPONSE](https://github.com/newLoki/
 ###PUT
 Updates an existing answer for this question.
 
+
 _**[PUT /polls/1337/questions/1/answers - REQUEST](https://github.com/newLoki/Pollex/blob/master/documentation/answers/put.request.json.html.html)**_
+
 _**[PUT /polls/1337/questions/1/answers - RESPONSE](https://github.com/newLoki/Pollex/blob/master/documentation/answers/put.response.json.html.html)**_
 
 ###DELETE

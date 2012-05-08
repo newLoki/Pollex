@@ -11,14 +11,17 @@ Retun a list of users, limited by _rows_ and started by _offset_
 * rows - how many entries should return, only necessary if no _id | name_ where given.
 * offset - where to start the query, only necessary if no _id | name_ where given.
 
-_**[GET /users?rows=2&offset=0](https://github.com/newLoki/Pollex/blob/master/documentation/users/get.index.json.html)
+_**[GET /users?rows=2&offset=0](https://github.com/newLoki/Pollex/blob/master/documentation/users/get.index.json.html)**_
 
 _**[GET /users/1](https://github.com/newLoki/Pollex/blob/master/documentation/users/get.1.json.html)**_
 
 ###POST
 Creates a new user.
 _The given password in request has to be a md5 string._
+
+
 _**[POST /users - REQUEST](https://github.com/newLoki/Pollex/blob/master/documentation/users/post.request.json.html)**_
+
 _**[POST /users - RESPONSE](https://github.com/newLoki/Pollex/blob/master/documentation/users/post.response.json.html)**_
 
 ###PUT
@@ -26,6 +29,7 @@ Updates information about given user.
 _The given password in request has to be a md5 string._
 
 _**[PUT /users - REQUEST](https://github.com/newLoki/Pollex/blob/master/documentation/users/put.request.json.html)**_
+
 _**[PUT /users - RESPONSE](https://github.com/newLoki/Pollex/blob/master/documentation/users/put.response.json.html)**_
 
 ###DELETE
