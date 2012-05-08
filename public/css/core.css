@@ -1,0 +1,134 @@
+body {
+    font-size: 14px;
+    background: #121212;
+    font-family: helvetica;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    font-size: 36px;
+    font-weight: bolder;
+}
+
+div.ticketWrapper {
+    width: 100%;
+    text-align: center;
+    margin-top: 200px;
+}
+
+div.yield {
+    text-align: center;
+    height: 60px;
+    background-color: #000;
+}
+
+div#activity {
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+ul {
+   padding-left: 300px;
+}
+
+ul.tickets {
+    padding: 0;
+}
+
+ul.tickets > li {
+    font-size: 14em;
+    display: inline-block;
+    text-align: center;
+    padding: 20px;
+    color: #FFF;
+}
+
+ul.tickets > li span {
+    display: block;
+    font-size: 0.2em;
+    color: #999;
+}
+
+li.activity {
+    display: block;
+    text-align: left;
+    background-color: #222;
+}
+
+li.activity a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+li.activity-title span {
+    color: #999;
+}
+
+li.activity-title {
+    font-size: 0.8em;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+ul > li.activity:nth-of-type(even) {
+    border-top: 20px solid red;
+}
+
+ul > li.activity:first-of-type {
+    border-top: 20px solid #3C3C3C;
+}
+
+li.activity {
+    text-align: left;
+    margin-bottom: 20px;
+    color: #999;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+li.activity blockquote, div.user-content {
+    border-radius: 10px;
+    background-color: #171616;
+    color: #fff;
+    padding: 15px;
+    border-radius-bottom:10px;
+    font-size: 0.5em;
+}
+
+li.activity > span > div {
+    padding-top: 10px;
+}
+
+div.warning {
+    background-color: yellow;
+}
+
+div.warning > h1 {
+    color: #000;
+}
+
+
+div.critical {
+    background-color: red;
+}
+
+div.ok {
+    background-color: green;
+}
+
+div.unknown {
+    border-color: #BF44B2;
+}
+
+li {
+    height: auto;
+    width: auto,
+}
+
+li > a {
+    font-size: 16px;
+}
