@@ -1,10 +1,7 @@
 {
     url: '/users',
-    parameters: {
-        rows: 2,
-        offset: 0
-    },
-    results: 2,
+    parameters: {},
+    results: 1,
     data: [{
         surname: 'John',
         lastname: 'Doe',
@@ -14,17 +11,7 @@
             id: 1,
             url: '/groups/1',
             name: 'admin'
-        }]
-    }, {
-        surname: 'Max',
-        lastname: 'Mustermann',
-        birthdate: '2000-06-06',
-        email: 'max@mustermann.de',
-        groups: [{
-            id: 1,
-            url: '/groups/1',
-            name: 'admin'
-        }, {
+        },{
             id: 2,
             url: '/groups/2',
             name: '10-Fi-1'

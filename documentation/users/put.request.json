@@ -1,30 +1,17 @@
 {
     url: '/users',
-    parameters: {
-        rows: 2,
-        offset: 0
-    },
-    results: 2,
+    parameters: {},
     data: [{
         surname: 'John',
         lastname: 'Doe',
         birthdate: '1982-07-05',
         email: 'user@example.com',
+        password: '37b51d194a7513e45b56f6524f2d51f2',
         groups: [{
             id: 1,
             url: '/groups/1',
             name: 'admin'
-        }]
-    }, {
-        surname: 'Max',
-        lastname: 'Mustermann',
-        birthdate: '2000-06-06',
-        email: 'max@mustermann.de',
-        groups: [{
-            id: 1,
-            url: '/groups/1',
-            name: 'admin'
-        }, {
+        },{
             id: 2,
             url: '/groups/2',
             name: '10-Fi-1'
