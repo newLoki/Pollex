@@ -35,3 +35,6 @@ _**PUT /polls/1337/questions - RESPONSE**_
 
 ###DELETE
 Deletes the question, identified by _id_.
+
+_**DELETE /polls/1337/questions/1**_
+<<(documentation/polls/delete.1.json)
