@@ -1,0 +1,26 @@
+{
+    url: '/polls/1337/questions/1/answers',
+    parameters: {
+        rows: 2,
+        offset: 0
+    },
+    poll: 1337,
+    question: 1,
+    results: 1,
+    data: [{
+        id: 1,
+        author: 'anonymous',
+        created: '2012-07-05T14:16:00',
+        updated: '2012-07-05T14:16:00',
+        url: '/polls/1337/questions/1/answers/1'
+        type: {
+            id: 1,
+            name: 'free_text',
+            url: '/types/1'
+        },
+        data: {
+            id: 0,
+            text: 'Answertext'
+        },
+    }]
+}
