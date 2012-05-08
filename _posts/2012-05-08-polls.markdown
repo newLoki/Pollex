@@ -32,4 +32,4 @@ _**[PUT /polls - RESPONSE](https://github.com/newLoki/Pollex/blob/master/documen
 
 ###DELETE
 Will delete poll
-_**[DELETE /polls/1337](https://github.com/newLoki/Pollex/blob/master/documentation/polls/delete.1337.json)**_
+_**[DELETE /polls/1337](https://github.com/newLoki/Pollex/blob/master/documentation/polls/delete.1337.json.html)**_
