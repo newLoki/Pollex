@@ -1,3 +1,4 @@
 markdown:    rdiscount
 permalink:   /:categories/:title
 pygments: true
+baseurl: /Pollex/
