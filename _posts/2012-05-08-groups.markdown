@@ -28,14 +28,14 @@ _**[POST /groups - RESPONSE](https://github.com/newLoki/Pollex/blob/gh-pages/moc
 Updates a group.
 This is only for the group name.
 
-_**[PUT /groups/1 - REQUEST]()**_
+_**[PUT /groups/1 - REQUEST](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/groups/put.request.json)**_
 
-_**[PUT /groups/1 - RESPONSE]()**_
+_**[PUT /groups/1 - RESPONSE](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/groups/put.response.json)**_
 
 ###DELETE
 Remove a group.
 
-_**[DELETE /groups/1]**_
+_**[DELETE /groups/1](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/groups/delete.1.json)**_
 
 
 @todo define possible roles -> member (give answers on poll with this group), all (public access),
