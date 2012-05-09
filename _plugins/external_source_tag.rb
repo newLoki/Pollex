@@ -13,16 +13,14 @@ module Jekyll
 
     def render(context)
         url = @text
-        code       = get_code url
-        html_output_for url, code
+        code       = get_code(url)
+        html_output_for(url, code)
     end
 
     def get_code(url)
-        #download from url to _code dir
-        type = URI.split(url).last
-        web_contents  = open(url) {|f| f.read }
+        web_contents  = open(URI.encode(url.strip)) {|f| f.read }
 
-        return web_contents.read
+        return web_contents
     end
 
     def html_output_for(script_url, code)
