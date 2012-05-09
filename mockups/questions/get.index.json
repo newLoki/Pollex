@@ -4,7 +4,7 @@
         rows: 2,
         offset: 0
     },
-    results: 1,
+    results: 2,
     data: [{
             id: 1,
             poll: 1337,

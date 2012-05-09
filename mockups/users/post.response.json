@@ -1,5 +1,5 @@
 {
-    url: '/users',
+    url: '/users/1',
     parameters: {},
     results: 1,
     data: [{
