@@ -1,5 +1,5 @@
 {
-    url: '/polls',
+    url: '/polls/1337',
     parameters: {},
     data: {
         id: 1337,

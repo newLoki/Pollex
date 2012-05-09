@@ -28,9 +28,9 @@ _**[POST /users - RESPONSE](https://github.com/newLoki/Pollex/blob/gh-pages/mock
 Updates information about given user.
 _The given password in request has to be a md5 string._
 
-_**[PUT /users - REQUEST](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/users/put.request.json)**_
+_**[PUT /users/1 - REQUEST](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/users/put.request.json)**_
 
-_**[PUT /users - RESPONSE](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/users/put.response.json)**_
+_**[PUT /users/1 - RESPONSE](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/users/put.response.json)**_
 
 ###DELETE
 Remove given user.

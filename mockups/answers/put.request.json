@@ -1,5 +1,5 @@
 {
-    url: '/polls/1337/questions/1/answers',
+    url: '/polls/1337/questions/1/answers/1',
     parameters: {},
     data: [{
         poll: 1337,

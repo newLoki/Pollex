@@ -5,4 +5,39 @@ summary: API Documentation for groups controller
 categories: api
 
 ---
-/users/groups
+###GET
+Return information about the group, identified by _id_, if no _id_ is given a list of all
+availeable groups will be returned, limited by _rows_ (_default: 10_) and starting on _offset_ (_default: 0_).
+
+####Parameters
+* rows - how many entries should return, only necessary if no _id | name_ where given.
+* offset - where to start the query, only necessary if no _id | name_ where given.
+
+_**[GET /groups?rows=2&offset=0]()**_
+
+_**[GET /groups/1]()**_
+
+###POST
+Creates a new group, only members of group __admin__ can do this.
+
+_**[POST /groups - REQUEST]()**_
+
+_**[POST /groups - RESPONSE]()**_
+
+###PUT
+Updates a group.
+This is only for the group name.
+
+_**[PUT /groups/1 - REQUEST]()**_
+
+_**[PUT /groups/1 - RESPONSE]()**_
+
+###DELETE
+Remove a group.
+
+_**[DELETE /groups/1]**_
+
+
+@todo define possible roles -> member (give answers on poll with this group), all (public access),
+admin (can change users, that are not self, access on everything), owner (update, delete right on own polls)
+@todo rigths on poll based on groups

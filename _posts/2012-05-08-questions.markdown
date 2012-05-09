@@ -30,9 +30,9 @@ _**[POST /polls/1337/questions - RESPONSE](https://github.com/newLoki/Pollex/blo
 Updates a question on this poll.
 If question with given _id_ doesn't exists, there will be raise up an error.
 
-_**[PUT /polls/1337/questions - REQUEST](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/questions/put.request.json)**_
+_**[PUT /polls/1337/questions/1 - REQUEST](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/questions/put.request.json)**_
 
-_**[PUT /polls/1337/questions - RESPONSE](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/questions/put.response.json)**_
+_**[PUT /polls/1337/questions/1 - RESPONSE](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/questions/put.response.json)**_
 
 
 ###DELETE

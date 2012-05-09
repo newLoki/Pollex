@@ -31,9 +31,9 @@ _**[POST /polls - RESPONSE](https://github.com/newLoki/Pollex/blob/gh-pages/mock
 Will return an error, if poll with given id doesn't exists
 
 
-_**[PUT /polls - REQUEST](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/polls/put.request)**_
+_**[PUT /polls/1337 - REQUEST](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/polls/put.request)**_
 
-_**[PUT /polls - RESPONSE](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/polls/put.response)**_
+_**[PUT /polls/1337 - RESPONSE](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/polls/put.response)**_
 
 ###DELETE
 Will delete poll
