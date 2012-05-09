@@ -13,9 +13,9 @@ availeable groups will be returned, limited by _rows_ (_default: 10_) and starti
 * rows - how many entries should return, only necessary if no _id | name_ where given.
 * offset - where to start the query, only necessary if no _id | name_ where given.
 
-_**[GET /groups?rows=2&offset=0]()**_
+_**[GET /groups?rows=2&offset=0](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/groups/get.index.json)**_
 
-_**[GET /groups/1]()**_
+_**[GET /groups/1](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/groups/get.1.json)**_
 
 ###POST
 Creates a new group, only members of group __admin__ can do this.
