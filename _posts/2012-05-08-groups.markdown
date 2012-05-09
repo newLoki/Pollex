@@ -20,9 +20,9 @@ _**[GET /groups/1](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/group
 ###POST
 Creates a new group, only members of group __admin__ can do this.
 
-_**[POST /groups - REQUEST]()**_
+_**[POST /groups - REQUEST](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/groups/post.request.json)**_
 
-_**[POST /groups - RESPONSE]()**_
+_**[POST /groups - RESPONSE](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/groups/post.response.json)**_
 
 ###PUT
 Updates a group.
