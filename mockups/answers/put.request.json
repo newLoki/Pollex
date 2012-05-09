@@ -2,7 +2,9 @@
     url: '/polls/1337/questions/1/answers/1',
     parameters: {},
     data: [{
+        id: 1,
         poll: 1337,
+        url: '/polls/1337/questions/1/answers/1',
         question: 1,
         type: {
             id: 1,

@@ -6,6 +6,8 @@
     },
     results: 2,
     data: [{
+        id: 1,
+        url: '/users/1',
         surname: 'John',
         lastname: 'Doe',
         birthdate: '1982-07-05',
@@ -18,6 +20,8 @@
             name: 'admin'
         }]
     }, {
+        id: 2,
+        url: '/users/2',
         surname: 'Max',
         lastname: 'Mustermann',
         birthdate: '2000-06-06',

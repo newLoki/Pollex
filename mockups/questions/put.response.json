@@ -3,7 +3,8 @@
     parameters: {},
     results: 1,
     data: [{
-            id: 1
+            id: 1,
+            url: '/polls/1337/questions/1',
             poll: 1337,
             type: {
                 id: 1,

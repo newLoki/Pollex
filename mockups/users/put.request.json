@@ -2,6 +2,8 @@
     url: '/users/1',
     parameters: {},
     data: [{
+        id: 1,
+        url: '/users/1',
         surname: 'John',
         lastname: 'Doe',
         birthdate: '1982-07-05',

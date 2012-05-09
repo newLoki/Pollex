@@ -1,10 +1,11 @@
 {
-    url: '/polls/1337/questions/1/answers/1',
+    url: '/polls/1337/questions/1/answers',
     parameters: {},
     results: 1,
     data: [{
         poll: 1337,
         question: 1,
+        url: '/polls/1337/questions/1/answers/1',
         type: {
             id: 1,
             name: 'free_text',

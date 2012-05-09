@@ -3,6 +3,7 @@
     parameters: {},
     data: {
         id: 1337,
+        url: '/polls/1337',
         name: 'foo',
         author: 'user',
         created: '2012-07-05T14:16:00',
