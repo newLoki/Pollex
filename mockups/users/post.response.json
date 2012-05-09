@@ -7,6 +7,8 @@
         lastname: 'Doe',
         birthdate: '1982-07-05',
         email: 'user@example.com',
+        created: '2012-05-05T10:00:00',
+        updated: '2012-05-05T10:00:00',
         groups: [{
             id: 1,
             url: '/groups/1',

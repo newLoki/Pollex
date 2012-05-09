@@ -14,6 +14,8 @@
                 name: 'free_text',
                 url: '/types/1'
             },
+            created: '2012-05-05T10:00:00',
+            updated: '2012-05-05T10:00:00',
             title: 'question title',
             text: 'lorem ipsum',
             answers: {
@@ -29,6 +31,8 @@
                 name: 'rating',
                 url: '/types/2'
             },
+            created: '2012-05-05T10:00:00',
+            updated: '2012-05-05T10:00:00',
             title: 'rating question',
             possibilities: [
                 1: 'Very good',

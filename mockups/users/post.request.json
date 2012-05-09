@@ -7,6 +7,8 @@
         birthdate: '1982-07-05',
         email: 'user@example.com',
         password: 'acbd18db4cc2f85cedef654fccc4a4d8',
+        created: '2012-05-05T10:00:00',
+        updated: '2012-05-05T10:00:00',
         groups: [{
             id: 1,
             url: '/groups/1',
