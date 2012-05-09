@@ -11,9 +11,9 @@ Return all questions on given poll, count is _rows_ and start is on _offset_, wh
 * rows - how many entries should return, only necessary if no _id | name_ where given (_default: 10_)
 * offset - where to start the query, only necessary if no _id | name_ where given (_default: 0_)
 
-_**[GET /polls/1337/questions?rows=2&offset=0](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/questions/get.index.json)**_
+_**[GET /polls/1337/questions?rows=2&offset=0](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/json/questions/get.index.json)**_
 
-_**[GET /polls/1337/questions/1](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/questions/get.1.json)**_
+_**[GET /polls/1337/questions/1](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/json/questions/get.1.json)**_
 
 ###POST
 Creates a new question on this poll.
@@ -22,20 +22,20 @@ Types are templates for questions, which give the possibility to validate answer
 the frontend.
 For more information look at the _Types_ section.
 
-_**[POST /polls/1337/questions - REQUEST](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/questions/post.request.json)**_
+_**[POST /polls/1337/questions - REQUEST](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/json/questions/post.request.json)**_
 
-_**[POST /polls/1337/questions - RESPONSE](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/questions/post.response.json)**_
+_**[POST /polls/1337/questions - RESPONSE](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/json/questions/post.response.json)**_
 
 ###PUT
 Updates a question on this poll.
 If question with given _id_ doesn't exists, there will be raise up an error.
 
-_**[PUT /polls/1337/questions/1 - REQUEST](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/questions/put.request.json)**_
+_**[PUT /polls/1337/questions/1 - REQUEST](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/json/questions/put.request.json)**_
 
-_**[PUT /polls/1337/questions/1 - RESPONSE](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/questions/put.response.json)**_
+_**[PUT /polls/1337/questions/1 - RESPONSE](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/json/questions/put.response.json)**_
 
 
 ###DELETE
 Deletes the question, identified by _id_.
 
-_**[DELETE /polls/1337/questions/1](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/polls/delete.1.json)**_
+_**[DELETE /polls/1337/questions/1](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/json/polls/delete.1.json)**_

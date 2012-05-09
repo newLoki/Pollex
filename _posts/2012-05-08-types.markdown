@@ -5,7 +5,8 @@ summary: API Documentation for types controller
 categories: api
 
 ---
-
+Types are used to store some information about question templates.
+Espacially
 Each type holds some information about field representation and validation rules.
 ###Free text
 Use for free text answers.
