@@ -1,0 +1,21 @@
+{
+    url: '/polls/1337/questions/1/answers',
+    parameters: {},
+    result: 1,
+    data: [{
+        poll: 1337,
+        question: 1,
+        type: {
+            id: 1,
+            name: 'free_text',
+            url: '/types/1'
+        },
+        author: 'user',
+        created: '2012-07-05T14:16:00',
+        updated: '2012-07-05T14:16:00',
+        data: {
+            id: 1,
+            text: 'new answer'
+        }
+    }]
+}

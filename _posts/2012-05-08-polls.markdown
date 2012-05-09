@@ -14,29 +14,29 @@ If no _id_ and no _name_ is given, it will return new newest entries, limited by
 * offset - where to start the query, only necessary if no _id | name_ where given (_default: 0_).
 
 
-_**[GET /polls/1337](https://github.com/newLoki/Pollex/blob/master/documentation/polls/get.1337)**_
+_**[GET /polls/1337](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/polls/get.1337)**_
 
-_**[GET /polls?rows=2&offset=0](https://github.com/newLoki/Pollex/blob/master/documentation/polls/get.index)**_
+_**[GET /polls?rows=2&offset=0](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/polls/get.index)**_
 
 
 ###POST
 Will create a new poll
 
 
-_**[POST /polls - REQUEST](https://github.com/newLoki/Pollex/blob/master/documentation/polls/post.request)**_
+_**[POST /polls - REQUEST](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/polls/post.request)**_
 
-_**[POST /polls - RESPONSE](https://github.com/newLoki/Pollex/blob/master/documentation/polls/post.response)**_
+_**[POST /polls - RESPONSE](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/polls/post.response)**_
 
 ###PUT
 Will return an error, if poll with given id doesn't exists
 
 
-_**[PUT /polls - REQUEST](https://github.com/newLoki/Pollex/blob/master/documentation/polls/put.request)**_
+_**[PUT /polls - REQUEST](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/polls/put.request)**_
 
-_**[PUT /polls - RESPONSE](https://github.com/newLoki/Pollex/blob/master/documentation/polls/put.response)**_
+_**[PUT /polls - RESPONSE](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/polls/put.response)**_
 
 ###DELETE
 Will delete poll
 
 
-_**[DELETE /polls/1337](https://github.com/newLoki/Pollex/blob/master/documentation/polls/delete.1337.json)**_
+_**[DELETE /polls/1337](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/polls/delete.1337.json)**_

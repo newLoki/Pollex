@@ -1,0 +1,20 @@
+{
+    url: '/users',
+    parameters: {},
+    data: [{
+        surname: 'John',
+        lastname: 'Doe',
+        birthdate: '1982-07-05',
+        email: 'user@example.com',
+        password: '37b51d194a7513e45b56f6524f2d51f2',
+        groups: [{
+            id: 1,
+            url: '/groups/1',
+            name: 'admin'
+        },{
+            id: 2,
+            url: '/groups/2',
+            name: '10-Fi-1'
+        }]
+    }]
+}

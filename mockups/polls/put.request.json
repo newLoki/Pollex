@@ -1,0 +1,12 @@
+{
+    url: '/polls',
+    parameters: {},
+    data: {
+        id: 1337,
+        name: 'foo',
+        author: 'user',
+        created: '2012-07-05T14:16:00',
+        updated: '2012-07-05T14:16:00',
+        description: 'description for survey',
+    }
+}

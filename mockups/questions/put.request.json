@@ -1,0 +1,18 @@
+{
+    url: '/polls/1337/questions',
+    parameters: {},
+    data: [{
+            poll: 1337,
+            type: {
+                id: 1,
+                name: 'free_text',
+                url: '/types/1'
+            },
+            title: 'question title',
+            text: 'lorem ipsum',
+            author: 'user',
+            created: '2012-07-05T14:16:00',
+            updated: '2012-07-05T14:16:00',
+        }
+    ]
+}
