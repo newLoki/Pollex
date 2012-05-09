@@ -5,7 +5,7 @@ summary: API Documentation for polls controller
 categories: api
 
 ---
-###GET {id | name}
+###GET
 Return a given poll, identified by _id_ or by _name_ (which will be return a 301 to _id_)
 If no _id_ and no _name_ is given, it will return new newest entries, limited by _rows_ parameter and starting by _offset_
 
