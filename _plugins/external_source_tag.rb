@@ -25,11 +25,11 @@ module Jekyll
         return web_contents.read
     end
 
-
     def html_output_for(script_url, code)
       code = CGI.escapeHTML code
       "<script src='#{script_url}'></script><div><noscript><pre><code>#{code}</code></pre></noscript></div>"
     end
+  end
+end
 
-Liquid::Template.register_tag('gist', Jekyll::GistTag)
-Liquid::Template.register_tag('gistnocache', Jekyll::GistTagNoCache)
+Liquid::Template.register_tag('external_source', Jekyll::ExternalSourceTag)
