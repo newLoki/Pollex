@@ -16,14 +16,13 @@ If no _id_ is given, it return all answers, limited by _rows_ and starting by _o
 
 
 _**[GET /polls/1337/questions/1/answers?rows=2&offset=0](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/answers/get.index.json)**_
-
 <pre><code class='javascript'>
-    {% include mockups/json/answers/get.index.json}%
+    {% include mockups/json/answers/get.index.json %}
 </code></pre>
 
 _**[GET /polls/1337/questions/1/answers/1](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/answers/get.1.json)**_
 <pre><code class='javascript'>
-    {% include mockups/json/answers/get.1.json}%
+    {% include mockups/json/answers/get.1.json %}
 </code></pre>
 
 ###POST
@@ -32,12 +31,12 @@ Creates a new answer for this question.
 
 _**[POST /polls/1337/questions/1/answers - REQUEST](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/answers/post.request.json)**_
 <pre><code class='javascript'>
-    {% include mockups/json/answers/post.request.json}%
+    {% include mockups/json/answers/post.request.json %}
 </code></pre>
 
 _**[POST /polls/1337/questions/1/answers - RESPONSE](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/answers/post.response.json)**_
 <pre><code class='javascript'>
-    {% include mockups/json/answers/post.response.json}%
+    {% include mockups/json/answers/post.response.json %}
 </code></pre>
 
 ###PUT
@@ -46,12 +45,12 @@ Updates an existing answer for this question.
 
 _**[PUT /polls/1337/questions/1/answers/1 - REQUEST](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/answers/put.request.json)**_
 <pre><code class='javascript'>
-    {% include mockups/json/answers/put.request.json}%
+    {% include mockups/json/answers/put.request.json %}
 </code></pre>
 
 _**[PUT /polls/1337/questions/1/answers/1 - RESPONSE](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/answers/put.response.json)**_
 <pre><code class='javascript'>
-    {% include mockups/json/answers/put.response.json}%
+    {% include mockups/json/answers/put.response.json %}
 </code></pre>
 
 ###DELETE
@@ -59,5 +58,5 @@ Deletes answer with _id_ for this question.
 
 _**[DELETE /polls/1337/questions/1/answers/1](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/answers/delete.1.json)**_
 <pre><code class='javascript'>
-    {% include mockups/json/answers/delete.1.json}%
+    {% include mockups/json/answers/delete.1.json %}
 </code></pre>
