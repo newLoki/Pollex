@@ -2,7 +2,6 @@ require 'cgi'
 require 'net/https'
 require 'uri'
 require 'open-uri'
-require 'nokogiri'
 
 module Jekyll
   class ExternalSourceTag < Liquid::Tag
@@ -24,12 +23,6 @@ module Jekyll
     end
 
     def html_output_for(script_url, code)
-        doc = Nokogiri::HTML(open('http://www.ruby-doc.org/core/classes/Bignum.html'))
-
-        output = ''
-        doc.xpath('//div[@class="highlight"]').each do | method_span |
-            output = method_span.content
-        end
 
       #code = CGI.escapeHTML code
       "<script src='#{script_url}'>#{output}</script><div><noscript><pre><code>#{code}</code></pre></noscript></div>"
