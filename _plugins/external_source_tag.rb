@@ -11,21 +11,20 @@ module Jekyll
     end
 
     def render(context)
-        url = @text
+        url = URI.encode(@text.strip)
         code       = get_code(url)
         html_output_for(url, code)
     end
 
     def get_code(url)
-        web_contents  = open(URI.encode(url.strip)) {|f| f.read }
+        puts "URL: #{URI.encode(url.strip)}"
+        web_contents  = open(url) {|f| f.read }
 
         return web_contents
     end
 
     def html_output_for(script_url, code)
-
-      #code = CGI.escapeHTML code
-      "<script src='#{script_url}'>#{output}</script><div><noscript><pre><code>#{code}</code></pre></noscript></div>"
+      "<script src='#{script_url}'></script><div><noscript><pre><code>#{code}</code></pre></noscript></div>"
     end
   end
 end
