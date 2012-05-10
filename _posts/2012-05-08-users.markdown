@@ -12,14 +12,12 @@ Retun a list of users, limited by _rows_ and started by _offset_
 * offset - where to start the query, only necessary if no _id | name_ where given.
 
 _**[GET /users?rows=2&offset=0](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/users/get.index.json)**_
-<pre><code class='javascript'>
-    {% include mockups/json/users/get.index.json %}
-</code></pre>
+<pre class="brush: js">    {% include mockups/json/users/get.index.json %}
+</pre>
 
 _**[GET /users/1](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/users/get.1.json)**_
-<pre><code class='javascript'>
-    {% include mockups/json/users/get.1.json %}
-</code></pre>
+<pre class="brush: js">    {% include mockups/json/users/get.1.json %}
+</pre>
 
 ###POST
 Creates a new user.
@@ -27,33 +25,28 @@ _The given password in request has to be a md5 string._
 
 
 _**[POST /users - REQUEST](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/users/post.request.json)**_
-<pre><code class='javascript'>
-    {% include mockups/json/users/post.request.json %}
-</code></pre>
+<pre class="brush: js">    {% include mockups/json/users/post.request.json %}
+</pre>
 
 _**[POST /users - RESPONSE](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/users/post.response.json)**_
-<pre><code class='javascript'>
-    {% include mockups/json/users/post.response.json %}
-</code></pre>
+<pre class="brush: js">    {% include mockups/json/users/post.response.json %}
+</pre>
 
 ###PUT
 Updates information about given user.
 _The given password in request has to be a md5 string._
 
 _**[PUT /users/1 - REQUEST](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/users/put.request.json)**_
-<pre><code class='javascript'>
-    {% include mockups/json/users/put.request.json %}
-</code></pre>
+<pre class="brush: js">    {% include mockups/json/users/put.request.json %}
+</pre>
 
 _**[PUT /users/1 - RESPONSE](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/users/put.response.json)**_
-<pre><code class='javascript'>
-    {% include mockups/json/users/put.response.json %}
-</code></pre>
+<pre class="brush: js">    {% include mockups/json/users/put.response.json %}
+</pre>
 
 ###DELETE
 Remove given user.
 
 _**[DELETE /users/1](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/users/delete.1.json)**_
-<pre><code class='javascript'>
-    {% include mockups/json/users/delete.1.json %}
-</code></pre>
+<pre class="brush: js">    {% include mockups/json/users/delete.1.json %}
+</pre>
