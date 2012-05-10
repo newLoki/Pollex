@@ -14,29 +14,49 @@ availeable groups will be returned, limited by _rows_ (_default: 10_) and starti
 * offset - where to start the query, only necessary if no _id | name_ where given.
 
 _**[GET /groups?rows=2&offset=0](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/groups/get.index.json)**_
+<pre><code class='javascript'>
+    {% include mockups/json/groups/get.index.json %}
+</code></pre>
 
 _**[GET /groups/1](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/groups/get.1.json)**_
+<pre><code class='javascript'>
+    {% include mockups/json/groups/get.1.json %}
+</code></pre>
 
 ###POST
 Creates a new group, only members of group __admin__ can do this.
 
 _**[POST /groups - REQUEST](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/groups/post.request.json)**_
+<pre><code class='javascript'>
+    {% include mockups/json/groups/post.request.json %}
+</code></pre>
 
 _**[POST /groups - RESPONSE](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/groups/post.response.json)**_
+<pre><code class='javascript'>
+    {% include mockups/json/groups/post.response.json %}
+</code></pre>
 
 ###PUT
 Updates a group.
 This is only for the group name.
 
 _**[PUT /groups/1 - REQUEST](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/groups/put.request.json)**_
+<pre><code class='javascript'>
+    {% include mockups/json/groups/put.request.json %}
+</code></pre>
 
 _**[PUT /groups/1 - RESPONSE](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/groups/put.response.json)**_
+<pre><code class='javascript'>
+    {% include mockups/json/groups/put.response.json %}
+</code></pre>
 
 ###DELETE
 Remove a group.
 
 _**[DELETE /groups/1](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/groups/delete.1.json)**_
-
+<pre><code class='javascript'>
+    {% include mockups/json/groups.delete.1.json %}
+</code></pre>
 
 @todo define possible roles -> member (give answers on poll with this group), all (public access),
 admin (can change users, that are not self, access on everything), owner (update, delete right on own polls)
