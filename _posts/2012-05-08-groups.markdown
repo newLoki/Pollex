@@ -55,7 +55,7 @@ Remove a group.
 
 _**[DELETE /groups/1](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/groups/delete.1.json)**_
 <pre><code class='javascript'>
-    {% include mockups/json/groups.delete.1.json %}
+    {% include mockups/json/groups/delete.1.json %}
 </code></pre>
 
 @todo define possible roles -> member (give answers on poll with this group), all (public access),
