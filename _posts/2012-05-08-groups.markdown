@@ -13,29 +13,29 @@ availeable groups will be returned, limited by _rows_ (_default: 10_) and starti
 * rows - how many entries should return, only necessary if no _id | name_ where given.
 * offset - where to start the query, only necessary if no _id | name_ where given.
 
-_**[GET /groups?rows=2&offset=0](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/json/groups/get.index.json)**_
+_**[GET /groups?rows=2&offset=0](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/groups/get.index.json)**_
 
-_**[GET /groups/1](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/json/groups/get.1.json)**_
+_**[GET /groups/1](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/groups/get.1.json)**_
 
 ###POST
 Creates a new group, only members of group __admin__ can do this.
 
-_**[POST /groups - REQUEST](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/json/groups/post.request.json)**_
+_**[POST /groups - REQUEST](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/groups/post.request.json)**_
 
-_**[POST /groups - RESPONSE](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/json/groups/post.response.json)**_
+_**[POST /groups - RESPONSE](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/groups/post.response.json)**_
 
 ###PUT
 Updates a group.
 This is only for the group name.
 
-_**[PUT /groups/1 - REQUEST](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/json/groups/put.request.json)**_
+_**[PUT /groups/1 - REQUEST](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/groups/put.request.json)**_
 
-_**[PUT /groups/1 - RESPONSE](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/json/groups/put.response.json)**_
+_**[PUT /groups/1 - RESPONSE](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/groups/put.response.json)**_
 
 ###DELETE
 Remove a group.
 
-_**[DELETE /groups/1](https://github.com/newLoki/Pollex/blob/gh-pages/mockups/json/groups/delete.1.json)**_
+_**[DELETE /groups/1](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/groups/delete.1.json)**_
 
 
 @todo define possible roles -> member (give answers on poll with this group), all (public access),

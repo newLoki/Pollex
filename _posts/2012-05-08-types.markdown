@@ -8,6 +8,8 @@ categories: api
 Types are used to store some information about question templates.
 Espacially
 Each type holds some information about field representation and validation rules.
+Actuall there are only two types which can be used.
+
 ###Free text
 Use for free text answers.
 
