@@ -16,9 +16,9 @@ If no _id_ is given, it return all answers, limited by _rows_ and starting by _o
 
 
 _**[GET /polls/1337/questions/1/answers?rows=2&offset=0](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/answers/get.index.json)**_
-{% highlight javascript %}
+<pre><code class='javascript'>
     {% include mockups/json/answers/get.index.json %}
-{% highlight %}
+</code></pre>
 
 _**[GET /polls/1337/questions/1/answers/1](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/answers/get.1.json)**_
 <pre><code class='javascript'>
