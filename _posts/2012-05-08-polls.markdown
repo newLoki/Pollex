@@ -30,7 +30,7 @@ Will create a new poll
 
 _**[POST /polls - REQUEST](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/polls/post.request.json)**_
 <pre><code class='javascript'>
-    {% include mockups/json/polls.request.json %}
+    {% include mockups/json/polls/post.request.json %}
 </code></pre>
 
 _**[POST /polls - RESPONSE](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/polls/post.response.json)**_
