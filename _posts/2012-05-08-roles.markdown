@@ -1,0 +1,9 @@
+---
+layout: default
+title: Roles Controller
+summary: API Documentation for roles controller
+categories: api
+---
+
+possible roles -> member (give answers on poll with this group), all (public access),
+admin (can change users, that are not self, access on everything), owner (update, delete right on own polls)

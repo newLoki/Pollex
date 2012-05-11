@@ -1,0 +1,6 @@
+---
+layout: default
+title: Rights Controller
+summary: API Documentation for rights controller
+categories: api
+---
