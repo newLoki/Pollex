@@ -6,17 +6,27 @@ categories: api
 
 ---
 Types are used to store some information about question templates.
-Espacially
 Each type holds some information about field representation and validation rules.
 Actuall there are only two types which can be used.
 
-###Free text
-Use for free text answers.
-
-###rating
-
-
 ###GET
+Return information about the group, identified by _id_, if no _id_ is given a list of all
+availeable groups will be returned, limited by _rows_ (_default: 10_) and starting on _offset_ (_default: 0_).
+
 ####Parameters
-###GET {id | name}
-@todo only for building frontend yet ;)
+* rows - how many entries should return, only necessary if no _id_ where given.
+* offset - where to start the query, only necessary if no _id_ where given.
+
+####Free text
+Used for free text answers.
+
+####rating
+Used for rating answers from one to six.
+
+_**[GET /typess?rows=2&offset=0](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/types/get.index.json)**_
+<pre class="brush: js">    {% include mockups/json/types/get.index.json %}
+</pre>
+
+_**[GET /types/1](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/types/get.1.json)**_
+<pre class="brush: js">    {% include mockups/json/types/get.1.json %}
+</pre>
