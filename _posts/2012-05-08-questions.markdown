@@ -8,8 +8,8 @@ categories: api
 ###GET
 Return all questions on given poll, count is _rows_ and start is on _offset_, which is 0 by default
 ####Parameters
-* rows - how many entries should return, only necessary if no _id | name_ where given (_default: 10_)
-* offset - where to start the query, only necessary if no _id | name_ where given (_default: 0_)
+* rows - how many entries should return, only necessary if no _id_ where given (_default: 10_)
+* offset - where to start the query, only necessary if no _id_ where given (_default: 0_)
 
 _**[GET /polls/1337/questions?rows=2&offset=0](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/questions/get.index.json)**_
 <pre class="brush: js">    {% include mockups/json/questions/get.index.json %}

@@ -51,6 +51,4 @@ _**[DELETE /groups/1](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/
 <pre class="brush: js">    {% include mockups/json/groups/delete.1.json %}
 </pre>
 
-@todo define possible roles -> member (give answers on poll with this group), all (public access),
-admin (can change users, that are not self, access on everything), owner (update, delete right on own polls)
 @todo rigths on poll based on groups

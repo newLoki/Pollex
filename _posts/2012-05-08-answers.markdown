@@ -11,8 +11,8 @@ Get an answers for given question, identified by _id_.
 If no _id_ is given, it return all answers, limited by _rows_ and starting by _offset_.
 
 ####Parameters
-* rows - how many entries should return, only necessary if no _id | name_ where given.
-* offset - where to start the query, only necessary if no _id | name_ where given.
+* rows - how many entries should return, only necessary if no _id_ where given.
+* offset - where to start the query, only necessary if no _id_ where given.
 
 
 _**[GET /polls/1337/questions/1/answers?rows=2&offset=0](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/answers/get.index.json)**_

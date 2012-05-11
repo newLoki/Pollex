@@ -8,8 +8,8 @@ categories: api
 ###GET
 Retun a list of users, limited by _rows_ and started by _offset_
 ####Parameters
-* rows - how many entries should return, only necessary if no _id | name_ where given.
-* offset - where to start the query, only necessary if no _id | name_ where given.
+* rows - how many entries should return, only necessary if no _id_ where given.
+* offset - where to start the query, only necessary if no _id_ where given.
 
 _**[GET /users?rows=2&offset=0](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/users/get.index.json)**_
 <pre class="brush: js">    {% include mockups/json/users/get.index.json %}
