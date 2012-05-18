@@ -1,0 +1,41 @@
+---
+layout: default
+title: Members Controller
+summary: API Documentation for members controller
+categories: api
+
+---
+
+###GET
+Return information about groupmembers, identified by _id_, if no _id_ is given a list of all
+availeable groupmembers will be returned, limited by _rows_ (_default: 10_) and starting on _offset_ (_default: 0_).
+
+####Parameters
+* rows - how many entries should return, only necessary if no _id | name_ where given.
+* offset - where to start the query, only necessary if no _id | name_ where given.
+
+_**[GET /groups/1/members?rows=2&offset=0](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/members/get.index.json)**_
+<pre class="brush: js">    {% include mockups/json/members/get.index.json %}
+</pre>
+
+_**[GET /groups/1/members/1](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/members/get.1.json)**_
+<pre class="brush: js">    {% include mockups/json/members/get.1.json %}
+</pre>
+
+###POST
+Adds a member to group, only members of group __admin__ can do this.
+
+_**[POST /groups/1/members - REQUEST](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/members/post.request.json)**_
+<pre class="brush: js">    {% include mockups/json/members/post.request.json %}
+</pre>
+
+_**[POST /groups/1/members - RESPONSE](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/members/post.response.json)**_
+<pre class="brush: js">    {% include mockups/json/members/post.response.json %}
+</pre>
+
+###DELETE
+Remove a group.
+
+_**[DELETE /groups/1](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/members/delete.1.json)**_
+<pre class="brush: js">    {% include mockups/json/members/delete.1.json %}
+</pre>

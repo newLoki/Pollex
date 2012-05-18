@@ -50,5 +50,3 @@ Remove a group.
 _**[DELETE /groups/1](https://github.com/newLoki/Pollex/blob/gh-pages/_includes/mockups/json/groups/delete.1.json)**_
 <pre class="brush: js">    {% include mockups/json/groups/delete.1.json %}
 </pre>
-
-@todo rigths on poll based on groups
