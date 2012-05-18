@@ -12,17 +12,6 @@ $app['debug'] = true;
  * Register own namepsace
  */
 $app['autoloader']->registerNamespace('SilexExtension', __DIR__ . '/../vendor/silex-extension/src');
-$app->register(new SilexExtension\MongoDbExtension(),
-    array(
-        'mongodb.class_path' => __DIR__ . '/../vendor/mongodb/lib',
-        'mongodb.connection' => array(
-            'server' => 'mongodb://mysecretuser:mysecretpassw@localhost',
-            'options' => array(),
-            'eventmanager' => function($eventmanager) {}
-        )
-    )
-);
-
 //ensure that content type is json
 $app->before(function (Request $request) {
     if (0 === strpos($request->headers->get('Content-Type'), 'application/json')) {
