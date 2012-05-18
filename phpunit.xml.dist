@@ -12,7 +12,7 @@
 >
     <testsuites>
         <testsuite name="Pollex">
-            <directory>./tests/Pollex</directory>
+            <directory>./tests/</directory>
         </testsuite>
     </testsuites>
 </phpunit>
