@@ -31,6 +31,12 @@ $app->before(function (Request $request) {
     }
 });
 
+$app->get('/', function() use ($app) {
+    $foo = new stdClass();
+    $foo->name = 'name';
+    return $app->json($foo);
+});
+
 //ensure it is authentificated
 //look @ http://chemicaloliver.net/programming/http-basic-auth-in-silex/
 
