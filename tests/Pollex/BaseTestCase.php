@@ -1,5 +1,5 @@
 <?php
-namespace Pollex\Tests\Base;
+namespace Pollex\Tests;
 use Silex\WebTestCase as BaseWebTestCase;
 
 class BaseTestCase extends  BaseWebTestCase

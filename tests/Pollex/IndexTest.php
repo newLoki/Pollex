@@ -1,5 +1,5 @@
 <?php
-namespace Pollex\Tests\Base;
+namespace Pollex\Tests;
 
 class IndexTest extends BaseTestCase
 {
