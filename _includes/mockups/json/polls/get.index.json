@@ -17,7 +17,16 @@
         'questions': {
                 'url': '/polls/1337/questions',
                 'data': []
-        }
+        },
+        'groups': [{
+            'id':1,
+            'name':'admin',
+            'url':'/groups/1'
+        }, {
+            'id':1,
+            'name':'10-Fi1',
+            'url':'/groups/2'
+        }]
     }, {
         'id': 1338,
         'url': '/polls/1338',
@@ -29,6 +38,15 @@
         'questions': {
             'url': '/polls/1338/questions',
             'data': []
-        }
+        },
+        'groups': [{
+            'id':1,
+            'name':'admin',
+            'url':'/groups/1'
+        }, {
+            'id':1,
+            'name':'10-Fi1',
+            'url':'/groups/2'
+        }]
     }],
 }

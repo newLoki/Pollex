@@ -8,5 +8,14 @@
         'created': '2012-07-05T14:16:00',
         'updated': '2012-07-05T14:16:00',
         'description': 'description for survey',
+        'groups': [{
+            'id':1,
+            'name':'admin',
+            'url':'/groups/1'
+        }, {
+            'id':1,
+            'name':'10-Fi1',
+            'url':'/groups/2'
+        }]
     }
 }

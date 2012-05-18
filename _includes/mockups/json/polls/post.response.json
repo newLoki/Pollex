@@ -14,6 +14,15 @@
         'questions': {
             'url': '/polls/1337/questions',
             'data': [],
-        }
+        },
+        'groups': [{
+            'id':1,
+            'name':'admin',
+            'url':'/groups/1'
+        }, {
+            'id':1,
+            'name':'10-Fi1',
+            'url':'/groups/2'
+        }]
     ],
 }

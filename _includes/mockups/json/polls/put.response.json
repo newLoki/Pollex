@@ -14,6 +14,11 @@
         'questions': {
             'url': '/polls/1337/questions',
             'data': [],
-        }
+        },
+        'groups': [{
+            'id':1,
+            'name':'admin',
+            'url':'/groups/1'
+        }]
     ],
 }
