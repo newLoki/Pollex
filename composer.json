@@ -1,5 +1,5 @@
 {
-    "name": "newloki_pollex",
+    "name": "newloki/pollex",
     "description": "Pollex is a simple rest API for polls",
     "keywords": ["silex", "poll", "survey", "rest", "api"],
     "homepage": "http://newloki.github.com/Pollex",
