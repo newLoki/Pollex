@@ -6,8 +6,8 @@ In the mockups folder, in gh-pages branch, are mockups for most of the actions y
 so the first client should be simple to realize, which meens, you are free to do this ;)
 The full documentation, wrapped in a nice design, is availeaable under (http://newloki.github.com/Pollex).
 
-##TODO
-###Doku
-* data formats
-* on error
-* numFound for each items
+[![Build Status](https://secure.travis-ci.org/fabpot/Silex.png?branch=master)](http://travis-ci.org/newloki/Pollex)
+
+##Get started
+_Pollex_ is a huge fan of composer, so you should use it to manage dependencies.
+This means you have to type `php composer.phar install` to install all needed packages.

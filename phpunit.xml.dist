@@ -11,11 +11,8 @@
          bootstrap="./tests/bootstrap.php"
 >
     <testsuites>
-        <testsuite name="Slexlib">
-            <directory>./tests/Slexlib</directory>
-        </testsuite>
-        <testsuite name="Slexboard">
-            <directory>./tests/Slexboard</directory>
+        <testsuite name="Pollex">
+            <directory>./tests/Pollex</directory>
         </testsuite>
     </testsuites>
 </phpunit>

@@ -23,28 +23,16 @@ $app->register(new SilexExtension\MongoDbExtension(),
     )
 );
 
-/**
- * /polls ->  (GET => liste, POST => new, PUT => nothing (not update function planned), DELETE => delete)
- * => GET = list all
- * => POST = new
- * => PUT = no update handle planned
- * => DELETE = not handled here
- *
- * /polls/{id|name}
- *  => GET = all questions -> mount questions
- *  => POST = not handled
- *  => PUT = update for survey {id}
- *  => DELETE = delete survey {id}
- *
- *
- * questions/
- *
- *
- *
- * /polls/{id|name}/questions/{id|number}
- *
- *
- */
+//ensure that content type is json
+$app->before(function (Request $request) {
+    if (0 === strpos($request->headers->get('Content-Type'), 'application/json')) {
+        $data = json_decode($request->getContent(), true);
+        $request->request = new ParameterBag($data);
+    }
+});
+
+//ensure it is authentificated
+//look @ http://chemicaloliver.net/programming/http-basic-auth-in-silex/
 
 
 return $app;
