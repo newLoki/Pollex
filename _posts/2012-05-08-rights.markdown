@@ -4,3 +4,6 @@ title: Rights Controller
 summary: API Documentation for rights controller
 categories: api
 ---
+
+__Different rights are not supported yet, but planned for the future
+(you can implement this, if you have to much spare time and open a pull request)__
