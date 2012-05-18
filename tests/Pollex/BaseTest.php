@@ -28,7 +28,10 @@ class BaseTestCase extends BaseWebTestCase
     {
         $client = $this->createClient();
         $crawler = $client->request('GET', '/');
-        var_dump($client->getResponse());
+
         $this->assertTrue($client->getResponse()->isOk());
+        $result = json_decode($client->getResponse()->getContent());
+        $this->assertObjectHasAttribute('name', $result);
+        $this->assertEquals($result->name, 'foo');
     }
 }

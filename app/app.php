@@ -13,7 +13,7 @@ $app['debug'] = true;
  */
 $app['autoloader']->registerNamespace('SilexExtension', __DIR__ . '/../vendor/silex-extension/src');
 //ensure that content type is json
-$app->before(function (Request $request) {
+$app->before(function ($request) {
     if (0 === strpos($request->headers->get('Content-Type'), 'application/json')) {
         $data = json_decode($request->getContent(), true);
         $request->request = new ParameterBag($data);
@@ -21,7 +21,11 @@ $app->before(function (Request $request) {
 });
 
 $app->get('/', function() use ($app) {
-    return $app->json('name');
+
+    $test = new stdClass();
+    $test->name = 'foo';
+
+    return $app->json($test);
 });
 
 //ensure it is authentificated
