@@ -6,7 +6,7 @@ In the mockups folder, in gh-pages branch, are mockups for most of the actions y
 so the first client should be simple to realize, which meens, you are free to do this ;)
 The full documentation, wrapped in a nice design, is availeaable under (http://newloki.github.com/Pollex).
 
-[![Build Status](https://secure.travis-ci.org/fabpot/Silex.png?branch=master)](http://travis-ci.org/newloki/Pollex)
+[![Build Status](https://secure.travis-ci.org/newLoki/Pollex.png?branch=master)](http://travis-ci.org/newLoki/Pollex)
 
 ##Get started
 _Pollex_ is a huge fan of composer, so you should use it to manage dependencies.
