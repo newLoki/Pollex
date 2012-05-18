@@ -21,9 +21,7 @@ $app->before(function (Request $request) {
 });
 
 $app->get('/', function() use ($app) {
-    $foo = new stdClass();
-    $foo->name = 'name';
-    return $app->json($foo);
+    return $app->json('name');
 });
 
 //ensure it is authentificated

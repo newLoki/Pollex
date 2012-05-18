@@ -7,6 +7,9 @@
          convertWarningsToExceptions="true"
          processIsolation="false"
          stopOnFailure="false"
+         stopOnError="false"
+         stopOnIncomplete="false"
+         stopOnSkipped="false"
          syntaxCheck="false"
          bootstrap="./tests/bootstrap.php"
 >
