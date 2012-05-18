@@ -1,14 +1,14 @@
 
 {
-    url: '/password',
-    parameters: {},
-    data: [{
-        created: '2012-05-05T10:00:00',
-        updated: '2012-05-05T10:00:00',
-        user: {
-            id: 1,
-            url: '/users/1',
-            email: 'user@example.com'
+    'url': '/password',
+    'parameters': {},
+    'data': [{
+        'created': '2012-05-05T10:00:00',
+        'updated': '2012-05-05T10:00:00',
+        'user': {
+            'id': 1,
+            'url': '/users/1',
+            'email': 'user@example.com'
         }
     }]
 

@@ -1,19 +1,19 @@
 
 {
-    url: '/polls/1337',
-    parameters: {},
-    results: 1,
-    data: [{
-        id: 1337,
-        url: '/polls/1337',
-        name: 'foo',
-        author: 'user',
-        created: '2012-07-05T14:16:00',
-        updated: '2012-07-05T14:16:00',
-        description: 'description for survey',
-        questions: {
-            url: '/polls/1337/questions',
-            data: [],
+    'url': '/polls/1337',
+    'parameters': {},
+    'results': 1,
+    'data': [{
+        'id': 1337,
+        'url': '/polls/1337',
+        'name': 'foo',
+        'author': 'user',
+        'created': '2012-07-05T14:16:00',
+        'updated': '2012-07-05T14:16:00',
+        'description': 'description for survey',
+        'questions': {
+            'url': '/polls/1337/questions',
+            'data': [],
         }
     ],
 }

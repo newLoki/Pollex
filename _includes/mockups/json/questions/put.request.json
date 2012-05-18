@@ -1,21 +1,21 @@
 
 {
-    url: '/polls/1337/questions/1',
-    parameters: {},
-    data: [{
-            id: 1,
-            url: '/polls/1337/questions/1',
-            poll: 1337,
-            type: {
-                id: 1,
-                name: 'free_text',
-                url: '/types/1'
+    'url': '/polls/1337/questions/1',
+    'parameters': {},
+    'data': [{
+            'id': 1,
+            'url': '/polls/1337/questions/1',
+            'poll': 1337,
+            'type': {
+                'id': 1,
+                'name': 'free_text',
+                'url': '/types/1'
             },
-            title: 'question title',
-            text: 'lorem ipsum',
-            author: 'user',
-            created: '2012-07-05T14:16:00',
-            updated: '2012-07-05T14:16:00',
+            'title': 'question title',
+            'text': 'lorem ipsum',
+            'author': 'user',
+            'created': '2012-07-05T14:16:00',
+            'updated': '2012-07-05T14:16:00',
         }
     ]
 }

@@ -1,42 +1,42 @@
 
 {
-    url: '/users',
-    parameters: {
-        rows: 2,
-        offset: 0
+    'url': '/users',
+    'parameters': {
+        'rows': 2,
+        'offset': 0
     },
-    results: 2,
-    data: [{
-        id: 1,
-        url: '/users/1',
-        surname: 'John',
-        lastname: 'Doe',
-        birthdate: '1982-07-05',
-        email: 'user@example.com',
-        created: '2012-05-05T10:00:00',
-        updated: '2012-05-05T10:00:00',
-        groups: [{
-            id: 1,
-            url: '/groups/1',
-            name: 'admin'
+    'results': 2,
+    'data': [{
+        'id': 1,
+        'url': '/users/1',
+        'surname': 'John',
+        'lastname': 'Doe',
+        'birthdate': '1982-07-05',
+        'email': 'user@example.com',
+        'created': '2012-05-05T10:00:00',
+        'updated': '2012-05-05T10:00:00',
+        'groups': [{
+            'id': 1,
+            'url': '/groups/1',
+            'name': 'admin'
         }]
     }, {
-        id: 2,
-        url: '/users/2',
-        surname: 'Max',
-        lastname: 'Mustermann',
-        birthdate: '2000-06-06',
-        email: 'max@mustermann.de',
-        created: '2012-05-05T10:00:00',
-        updated: '2012-05-05T10:00:00',
-        groups: [{
-            id: 1,
-            url: '/groups/1',
-            name: 'admin'
+        'id': 2,
+        'url': '/users/2',
+        'surname': 'Max',
+        'lastname': 'Mustermann',
+        'birthdate': '2000-06-06',
+        'email': 'max@mustermann.de',
+        'created': '2012-05-05T10:00:00',
+        'updated': '2012-05-05T10:00:00',
+        'groups': [{
+            'id': 1,
+            'url': '/groups/1',
+            'name': 'admin'
         }, {
-            id: 2,
-            url: '/groups/2',
-            name: '10-Fi-1'
+            'id': 2,
+            'url': '/groups/2',
+            'name': '10-Fi-1'
         }]
     }]
 }

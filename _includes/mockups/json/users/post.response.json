@@ -1,25 +1,25 @@
 
 {
-    url: '/users',
-    parameters: {},
-    results: 1,
-    data: [{
-        id: 1,
-        url: '/users/1',
-        surname: 'John',
-        lastname: 'Doe',
-        birthdate: '1982-07-05',
-        email: 'user@example.com',
-        created: '2012-05-05T10:00:00',
-        updated: '2012-05-05T10:00:00',
-        groups: [{
-            id: 1,
-            url: '/groups/1',
-            name: 'admin'
+    'url': '/users',
+    'parameters': {},
+    'results': 1,
+    'data': [{
+        'id': 1,
+        'url': '/users/1',
+        'surname': 'John',
+        'lastname': 'Doe',
+        'birthdate': '1982-07-05',
+        'email': 'user@example.com',
+        'created': '2012-05-05T10:00:00',
+        'updated': '2012-05-05T10:00:00',
+        'groups': [{
+            'id': 1,
+            'url': '/groups/1',
+            'name': 'admin'
         },{
-            id: 2,
-            url: '/groups/2',
-            name: '10-Fi-1'
+            'id': 2,
+            'url': '/groups/2',
+            'name': '10-Fi-1'
         }]
     }]
 }

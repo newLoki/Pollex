@@ -1,8 +1,8 @@
 
 {
-    url: '/password',
-    parameters: {},
-    results: 0,
-    data: []
+    'url': '/password',
+    'parameters': {},
+    'results': 0,
+    'data': []
 
 }

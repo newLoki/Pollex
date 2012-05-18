@@ -1,55 +1,55 @@
 {
-    url: '/types',
-    parameters: {
-        rows: 2,
-        offset: 0
+    'url': '/types',
+    'parameters': {
+        'rows': 2,
+        'offset': 0
     },
-    results: 2,
-    data: [{
-        id: 1,
-        created: '2012-05-05T10:00:00',
-        updated: '2012-05-05T10:00:00',
-        name: 'free_text',
-        url: '/types/1',
-        type: 'text',
-        validator: '^[a-zA-Z_-0-9\.,.]*$',
-        fields: [{
-            id: 1,
-            name: 'answers',
-            value: ''
+    'results': 2,
+    'data': [{
+        'id': 1,
+        'created': '2012-05-05T10:00:00',
+        'updated': '2012-05-05T10:00:00',
+        'name': 'free_text',
+        'url': '/types/1',
+        'type': 'text',
+        'validator': '^[a-zA-Z_-0-9\.,.]*$',
+        'fields': [{
+            'id': 1,
+            'name': 'answers',
+            'value': ''
         }]
     }, {
-        id: 2,
-        created: '2012-05-05T10:00:00',
-        updated: '2012-05-05T10:00:00',
-        name: 'rating',
-        url: '/types/2',
-        type: 'int',
-        validator: '^[1-6]$',
-        fields: [{
-            id: 1,
-            name: 'very good',
-            value: 1
+        'id': 2,
+        'created': '2012-05-05T10:00:00',
+        'updated': '2012-05-05T10:00:00',
+        'name': 'rating',
+        'url': '/types/2',
+        'type': 'int',
+        'validator': '^[1-6]$',
+        'fields': [{
+            'id': 1,
+            'name': 'very good',
+            'value': 1
         }, {
-            id: 2,
-            name: 'good',
-            value: 2
+            'id': 2,
+            'name': 'good',
+            'value': 2
         }, {
-            id: 3,
-            name: 'satisfying',
-            value: 3
+            'id': 3,
+            'name': 'satisfying',
+            'value': 3
         }, {
-            id: 4,
-            name: 'sufficient',
-            value: 4
+            'id': 4,
+            'name': 'sufficient',
+            'value': 4
         }, {
-            id: 5,
-            name: 'deficient',
-            value: 5
+            'id': 5,
+            'name': 'deficient',
+            'value': 5
         }, {
-            id: 6,
-            name: 'insufficient',
-            value: 6
+            'id': 6,
+            'name': 'insufficient',
+            'value': 6
         }]
     }]
 }

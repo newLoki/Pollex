@@ -1,22 +1,22 @@
 {
-    url: '/types',
-    parameters: {
-        rows: 2,
-        offset: 0
+    'url': '/types',
+    'parameters': {
+        'rows': 2,
+        'offset': 0
     },
-    results: 2,
-    data: [{
-        id: 1,
-        created: '2012-05-05T10:00:00',
-        updated: '2012-05-05T10:00:00',
-        name: 'free_text',
-        url: '/types/1',
-        type: 'text',
-        validator: '^[a-zA-Z_-0-9\.,\ ]*$',
-        fields: [{
-            id: 1,
-            name: 'answers',
-            value: ''
+    'results': 2,
+    'data': [{
+        'id': 1,
+        'created': '2012-05-05T10:00:00',
+        'updated': '2012-05-05T10:00:00',
+        'name': 'free_text',
+        'url': '/types/1',
+        'type': 'text',
+        'validator': '^[a-zA-Z_-0-9\.,\ ]*$',
+        'fields': [{
+            'id': 1,
+            'name': 'answers',
+            'value': ''
         }]
     }
 }
