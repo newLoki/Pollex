@@ -1,6 +1,5 @@
 <?php
 namespace Pollex\Entity;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @Entity @Table(name="user")
@@ -94,16 +93,6 @@ class User
     public function getBirthdate()
     {
         return $this->birthdate;
-    }
-
-    /**
-     * set datetime, when entry was created
-     *
-     * @param \DateTime $created
-     */
-    public function setCreated($created)
-    {
-        $this->created = $created;
     }
 
     /**
