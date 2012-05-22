@@ -11,3 +11,15 @@ The full documentation, wrapped in a nice design, is availeaable under (http://n
 ##Get started
 _Pollex_ is a huge fan of composer, so you should use it to manage dependencies.
 This means you have to type `php composer.phar install` to install all needed packages.
+
+##Setup the database
+Create a new database called pollex by typing
+`mysql -u<username> -p<password> -e "CREATE DATABASE IF NOT EXISTS pollex"`
+If the database is successfull created, you can bring your database schema to the max by typing:
+`java -jar liquibase.jar --driver=com.mysql.jdbc.Driver \
+      --classpath=databasedriver/mysql-connector-java-5.1.17-bin.jar \
+      --changeLogFile=../data/sql/changelog.xml \
+      --url="jdbc:mysql://127.0.0.1:3306/pollex" \
+      --username=root \
+      --password=root \
+      migrate`
