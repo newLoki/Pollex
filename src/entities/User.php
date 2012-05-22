@@ -56,6 +56,11 @@ class User
     protected $updated;
 
     /**
+     * @ManyToMany(targetEntity="Group", mappedBy="users")
+     */
+    protected $groups;
+
+    /**
      * Set created date to now, if a new object is constructed
      * (this is not called on hydration)
      *
@@ -64,6 +69,7 @@ class User
     public function __construct()
     {
         $this->created = new \DateTime();
+        $this->groups = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -214,5 +220,25 @@ class User
     public function getUpdated()
     {
         return $this->updated;
+    }
+
+    /**
+     * Add group membership to user
+     *
+     * @param Group $group
+     */
+    public function addGroup(Group $group)
+    {
+        $this->groups[] = $group;
+    }
+
+    /**
+     * Get all groups, where user is member of
+     *
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getGroups()
+    {
+        return $this->groups;
     }
 }
