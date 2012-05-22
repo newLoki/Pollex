@@ -1,22 +1,24 @@
 <?php
-use Silex\Provider\SymfonyBridgesServiceProvider;
-use Silex\Provider\TranslationServiceProvider;
-use Silex\Provider\FormServiceProvider;
-
 require_once __DIR__.'/bootstrap.php';
 
 $app = new Silex\Application();
 $app['debug'] = true;
 
-//register config dir
-$app->register(new KevinGH\Silex\Config\Provider, array(
-    'config.path' => __DIR__ . '/config'
-));
+//register own namespace
+$app['autoloader']->registerNamespace('Pollex', realpath(__DIR__ . '/../src/'));
 
 //register Doctrine ORM extension
-$app['autoloader']->registerNamespace('Nutwerk', __DIR__ . '/vendor/nutwerk-orm-extension/lib');
+$app->register(new Silex\Provider\DoctrineServiceProvider(), array(
+    'db.options'            => array(
+        'driver'    => 'pdo_sqlite',
+        'path'      => __DIR__.'/app.db',
+    ),
+    'db.dbal.class_path'    => __DIR__.'/../vendor/doctrine/dbal/lib',
+    'db.common.class_path'  => __DIR__.'/../vendor/doctrine/common/lib',
+));
+$app['autoloader']->registerNamespace('Nutwerk', realpath(__DIR__ . '/../vendor/nutwerk/doctrine-orm-provider/lib/'));
 $app->register(new Nutwerk\Provider\DoctrineORMServiceProvider(), array(
-    'db.orm.class_path'            => __DIR__.'/../vendor/doctrine2-orm/lib',
+    'db.orm.class_path'            => __DIR__.'/../vendor/doctrine/orm/lib',
     'db.orm.proxies_dir'           => __DIR__.'/../var/cache/doctrine/Proxy',
     'db.orm.proxies_namespace'     => 'DoctrineProxy',
     'db.orm.auto_generate_proxies' => true,
@@ -36,19 +38,24 @@ $app->before(function ($request) {
 });
 
 //ensure it is authentificated
-//look @ http://chemicaloliver.net/programming/http-basic-auth-in-silex/
 $app->before(function() use ($app)
 {
-    if (!isset($_SERVER['PHP_AUTH_USER'])) {
-        $domain = $app['config']->get('domain');
-        header('WWW-Authenticate: Basic realm="' . $domain . '"');
+    //$request->server->get('PHP_AUTH_USER', false)
+    $username = $app['request']->server->get('PHP_AUTH_USER', false);
+    $password = $app['request']->server->get('PHP_AUTH_PW', false);
+    if (!$username) {
+        $domain = 'http://pollex.de';
+        $app['request']->headers->set('WWW-Authenticate', 'Basic realm="' . $domain . '"');
         return $app->json(array('Message' => 'Not Authorised'), 401);
     } else {
-        //get user given in $_SERVER['PHP_AUTH_USER'] and check if
-        //password is same as $_SERVER['PHP_AUTH_PW']
-        //if not -> return $app->json(array('Message' => 'Forbidden'), 403);
 
-
+        $query = $app['db.orm.em']->createQuery(
+            'SELECT u.password FROM Pollex\Entity\User u WHERE u.name = :name');
+        $query->setParameter(':name', $username);
+        $userPassword = $query->getResult();
+        if($userPassword !== $password) {
+            return $app->json(array('Message' => 'Forbidden'), 403);
+        }
     }
 });
 

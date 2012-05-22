@@ -15,6 +15,6 @@
         "silex/silex": "1.0.*",
         "doctrine/orm": "2.1.*",
         "nutwerk/doctrine-orm-provider": "*",
-        "kherge/config": "dev-master"
+        "symfony/config": "*"
     }
 }
