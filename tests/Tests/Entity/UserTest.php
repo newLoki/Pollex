@@ -1,17 +1,18 @@
 <?php
 
-namespace Pollex\Tests;
+namespace Tests\Entity;
 
 use Pollex\Entity as Entity;
+use Tests as Base;
 
-class UserTest extends TestCase
+class UserTest extends \Tests\TestCase
 {
     /** @var \Pollex\Entity\User */
     protected $_user;
 
     public function setUp()
     {
-        $this->_user = new \Entity\User();
+        $this->_user = new Entity\User();
     }
 
     public function testShouldInstanciaeteGroups()

@@ -9,7 +9,7 @@ class BaseTestCase extends BaseWebTestCase
     public function createApplication()
     {
             // load Silex
-            $this->app = require __DIR__.'/../../app/app.php';
+            $this->app = require __DIR__.'/../app/app.php';
 
             // Tests mode
             $this->app['debug'] = true;
@@ -24,8 +24,10 @@ class BaseTestCase extends BaseWebTestCase
             return $app;
     }
 
+
     public function testJsonReturn()
     {
+        $this->markTestIncomplete('not working yet, because there are no possibility to authentificate yet');
         $client = $this->createClient();
         $crawler = $client->request('GET', '/');
 

@@ -6,7 +6,7 @@ require_once __DIR__.'/../app/silex.phar';
 
 $app = require_once __DIR__.'/../app/app.php';
 //seems to be broken O.o
-$app['autoloader']->registerNamespace('Pollex\\Tests', __DIR__);
+$app['autoloader']->registerNamespace('Tests', __DIR__);
 
 
 return $app;

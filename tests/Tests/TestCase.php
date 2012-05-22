@@ -1,19 +1,19 @@
 <?php
-namespace Pollex\Tests;
+namespace Tests;
 
-abstract class TestCase extends PHPUnit_Framework_TestCase
+abstract class TestCase extends \PHPUnit_Framework_TestCase
 {
     /**
      * mock object for Doctrine's entityManager
      *
-     * @var PHPUnit_Framework_MockObject
+     * @var \PHPUnit_Framework_MockObject
      */
     protected $_mockEntityManager;
 
     /**
      * mock object for Doctrine's Repository
      *
-     * @var PHPUnit_Framework_MockObject
+     * @var \PHPUnit_Framework_MockObject
      */
     protected $_mockRepository;
 
@@ -33,7 +33,7 @@ abstract class TestCase extends PHPUnit_Framework_TestCase
     /**
      * create an entity manager mock object
      *
-     * @return PHPUnit_Framework_MockObject
+     * @return \PHPUnit_Framework_MockObject
      */
     protected function _getEntityManagerMock()
     {
@@ -80,7 +80,7 @@ abstract class TestCase extends PHPUnit_Framework_TestCase
     /**
      * create a mock object for the repository
      *
-     * @return PHPUnit_Framework_MockObject
+     * @return \PHPUnit_Framework_MockObject
      */
     protected function _getRepositoryMock()
     {
@@ -92,10 +92,6 @@ abstract class TestCase extends PHPUnit_Framework_TestCase
                      'findAll',
                      'findBy',
                      'findOneBy',
-                     'findOneByCode',
-                     'findOneByName',
-                     'findOneByNumber',
-                     'findOneByObiNumber',
                 )
             );
         } else {
@@ -107,8 +103,8 @@ abstract class TestCase extends PHPUnit_Framework_TestCase
 
     /**
      * @param string $name
-     * @param Obi_Entity_Abstract $entity
-     * @return PHPUnit_Framework_MockObject
+     * @param $entity
+     * @return \PHPUnit_Framework_MockObject
      */
     protected function _mockRepositoryMethod($name, $entity)
     {
