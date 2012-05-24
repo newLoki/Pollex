@@ -24,3 +24,32 @@ This means you have to type `php composer.phar install` to install all needed pa
 ###Working with custom queries
 `$app['db.orm.em']->createQuery('SELECT a FROM MyWebsite\Entity\Article a');`
 [Source](http://martinsikora.com/silex-doctrine2-orm)
+
+##Setup the database
+Create a new database called pollex by typing
+`mysql -u<username> -p<password> -e "CREATE DATABASE IF NOT EXISTS pollex"`
+If the database is successfull created, you can bring your database schema to the max by typing:
+`java -jar build/liquibase.jar --driver=com.mysql.jdbc.Driver \
+      --classpath=build/databasedriver/mysql-connector-java-5.1.17-bin.jar \
+      --changeLogFile=data/sql/changelog.xml \
+      --url="jdbc:mysql://127.0.0.1:3306/pollex" \
+      --username=root \
+      --password=root \
+      migrate`
+
+#Testing
+If you want to run the tests, there are certain steps to do before:
+* Load composer, if not done yet (`wget http://getcomposer.org/composer.phar`)
+* Install all dependencies (`php composer.phar install`)
+* Create a test database (`mysql -u<username> -p<password> -e 'create database pollex;'`)
+* Load testing data into database
+`java -jar build/liquibase.jar \
+    --driver=com.mysql.jdbc.Driver \
+    --classpath=build/databasedriver/mysql-connector-java-5.1.17-bin.jar \
+    --changeLogFile=data/sql/changelog.xml \
+    --url="jdbc:mysql://127.0.0.1:3306/pollex" \
+    --username=<username> \
+    --password=<password> \
+    --contexts="test" \
+migrate`
+* Run unittests (`phpunit`)
