@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+    <changeSet author="newloki" id="1">
+        <createTable tableName="users">
+            <column name="id" type="INT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="surname" type="VARCHAR(255)"/>
+            <column name="lastname" type="VARCHAR(255)"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="birthdate" type="DATE" />
+            <column name="password" type="VARCHAR(255)"/>
+            <column name="created" type="DATETIME"/>
+            <column name="updated" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="newLoki" id="2">
+        <createTable tableName="groups">
+            <column name="id" type="INT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="name" type="VARCHAR(255)" />
+            <column name="created" type="DATETIME" />
+            <column name="updated" type="DATETIME" />
+        </createTable>
+    </changeSet>
+    <changeSet author="newLoki" id="3">
+        <createTable tableName="user_group">
+            <column name="id" type="INT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="user_id" type="INT" />
+            <column name="group_id" type="INT" />
+        </createTable>
+        <addForeignKeyConstraint constraintName="fk_user_id"
+                     baseTableName="user_group" baseColumnNames="user_id"
+                     referencedTableName="users" referencedColumnNames="id"
+                     onDelete="CASCADE" onUpdate="CASCADE"
+                />
+                <addForeignKeyConstraint constraintName="fk_group_id"
+                     baseTableName="user_group" baseColumnNames="group_id"
+                     referencedTableName="groups" referencedColumnNames="id"
+                     onDelete="CASCADE" onUpdate="CASCADE"
+                />
+    </changeSet>
+    <changeSet author="newLoki" id="4" context="test">
+        <loadData tableName="users" file="data/tests/user.csv">
+            <column name="id" header="id" type="NUMERIC"/>
+            <column name="surname" header="surname" type="STRING"/>
+            <column name="lastname" header="lastname" type="STRING"/>
+            <column name="email" header="email" type="STRING"/>
+            <column name="birthdate" header="birthdate" type="DATE" />
+            <column name="password" header="password" type="STRING"/>
+            <column name="created" header="created" type="DATE"/>
+            <column name="updated" header="updated" type="DATE"/>
+        </loadData>
+    </changeSet>
+    <changeSet author="newLoki" id="5" context="test">
+        <loadData tableName="groups" file="data/tests/group.csv">
+            <column name="id" header="id" type="NUMERIC" />
+            <column name="name" header="name" type="STRING" />
+            <column name="created" header="created" type="DATE" />
+            <column name="updated" header="updated" type="DATE" />
+        </loadData>
+    </changeSet>
+    <changeSet author="newLoki" id="6" context="test">
+        <loadData tableName="user_group" file="data/tests/groupmembers.csv">
+            <column name="id" header="id" type="NUMERIC" />
+            <column name="user_id" header="user_id" type="NUMERIC" />
+            <column name="group_id" header="group_id" type="NUMERIC" />
+        </loadData>
+    </changeSet>
+    <!--
+    needed tables
+    * types -> not needed yet as data table, there are only two types, who can be hardcoded :D
+    * polls
+        * id
+        * name
+        * author
+        * created
+        * updated
+        * description
+    * polls-groups -> udpate docu fpr rights controller
+        * id
+        * poll_id
+        * group_id
+        * delete -> flag
+        * update -> flag
+        * answer -> flag
+    * questions
+        * id
+        * title
+        * text
+        * type
+        * poll_id
+        * created
+        * updated
+    * answers
+        * id
+        * poll_id
+        * question_id
+        * type
+        * created
+        * updated
+        * value -> text
+    * (rights: group-id <-> poll-id, right => delete, update) -> can be handled with polls-groups table
+    -->
+
+</databaseChangeLog>
