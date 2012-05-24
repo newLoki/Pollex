@@ -1,6 +1,12 @@
 <?php
+defined('APPLICATION_ENV')
+    || define('APPLICATION_ENV', (getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'prod'));
+
 require_once __DIR__.'/bootstrap.php';
 
+$config = require __DIR__ . '/config.php';
+
+$env = APPLICATION_ENV;
 $app = new Silex\Application();
 $app['debug'] = true;
 
@@ -9,22 +15,20 @@ $app['autoloader']->registerNamespace('Pollex', realpath(__DIR__ . '/../src/'));
 
 //register Doctrine ORM extension
 $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
-    'db.options'            => array(
-        'driver'    => 'pdo_sqlite',
-        'path'      => __DIR__.'/app.db',
-    ),
-    'db.dbal.class_path'    => __DIR__.'/../vendor/doctrine/dbal/lib',
-    'db.common.class_path'  => __DIR__.'/../vendor/doctrine/common/lib',
+    'db.options'            => $config['db'][$env],
+    'db.dbal.class_path'    => realpath(__DIR__.'/../vendor/doctrine/dbal/lib'),
+    'db.common.class_path'  => realpath(__DIR__.'/../vendor/doctrine/common/lib'),
 ));
+//var_dump($app['db.options']);
 $app['autoloader']->registerNamespace('Nutwerk', realpath(__DIR__ . '/../vendor/nutwerk/doctrine-orm-provider/lib/'));
 $app->register(new Nutwerk\Provider\DoctrineORMServiceProvider(), array(
-    'db.orm.class_path'            => __DIR__.'/../vendor/doctrine/orm/lib',
-    'db.orm.proxies_dir'           => __DIR__.'/../var/cache/doctrine/Proxy',
+    'db.orm.class_path'            => realpath(__DIR__.'/../vendor/doctrine/orm/lib'),
+    'db.orm.proxies_dir'           => realpath(__DIR__.'/../var/Proxy'),
     'db.orm.proxies_namespace'     => 'DoctrineProxy',
     'db.orm.auto_generate_proxies' => true,
     'db.orm.entities'              => array(array(
         'type'      => 'annotation',
-        'path'      => __DIR__.'/../src/entites',
+        'path'      => realpath(__DIR__.'/../src/Pollex/Entity'),
         'namespace' => 'Pollex\Entity',
     )),
 ));
@@ -48,12 +52,13 @@ $app->before(function() use ($app)
         $app['request']->headers->set('WWW-Authenticate', 'Basic realm="' . $domain . '"');
         return $app->json(array('Message' => 'Not Authorised'), 401);
     } else {
-
-        $query = $app['db.orm.em']->createQuery(
-            'SELECT u.password FROM Pollex\Entity\User u WHERE u.name = :name');
-        $query->setParameter(':name', $username);
-        $userPassword = $query->getResult();
-        if($userPassword !== $password) {
+        /** @var $em Doctrine\ORM\EntityManager */
+        $em = $app['db.orm.em'];
+        $query = $em->createQuery(
+            'SELECT u.password FROM Pollex\Entity\User u WHERE u.email = ?1');
+        $query->setParameter('1', $username);
+        $result = $query->getResult();
+        if($result[0]['password'] !== $password) {
             return $app->json(array('Message' => 'Forbidden'), 403);
         }
     }

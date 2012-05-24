@@ -8,32 +8,26 @@ class BaseTestCase extends BaseWebTestCase
 
     public function createApplication()
     {
-            // load Silex
-            $this->app = require __DIR__.'/../app/app.php';
+        // load Silex
+        //dont refactor to use require_once, this will break all -.-
+        $app = require realpath(__DIR__.'/../app/app.php');
 
-            // Tests mode
-            $this->app['debug'] = true;
-            unset($this->app['exception_handler']);
-            $app['translator.messages'] = array();
 
-            // Use FilesystemSessionStorage to store session
-            $this->app['session.storage'] = $this->app->share(function() {
-                return new MockFileSessionStorage(sys_get_temp_dir());
-            });
-
-            return $app;
+        return $app;
     }
 
 
-    public function testJsonReturn()
+    public function testHttpAuth()
     {
-        $this->markTestIncomplete('not working yet, because there are no possibility to authentificate yet');
+        //$this->markTestIncomplete('not working yet, because there are no possibility to authentificate yet');
         $client = $this->createClient();
-        $crawler = $client->request('GET', '/');
-
+        $crawler = $client->request('GET', '/', array(), array(), array(
+            'PHP_AUTH_USER' => 'john.doe@example.com',
+            'PHP_AUTH_PW'   => '5f4dcc3b5aa765d61d8327deb882cf99'
+        ));
         $this->assertTrue($client->getResponse()->isOk());
-        $result = json_decode($client->getResponse()->getContent());
-        $this->assertObjectHasAttribute('name', $result);
-        $this->assertEquals($result->name, 'foo');
+        //$result = json_decode($client->getResponse()->getContent());
+        //$this->assertObjectHasAttribute('name', $result);
+        //$this->assertEquals($result->name, 'foo');
     }
 }

@@ -2,7 +2,7 @@
 namespace Pollex\Entity;
 
 /**
- * @Entity @Table(name="user")
+ * @Entity @Table(name="users")
  * @HasLifecycleCallbacks
  */
 class User
