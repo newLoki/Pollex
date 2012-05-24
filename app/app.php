@@ -66,8 +66,8 @@ $app->before(function() use ($app)
     }
 });
 
-$app->error(function (\DBALException $e, $code) use ($app) {
-    return $app->json(array('Message' => 'Database failure'), 500);
+$app->error(function (\Doctrine\ORM\Proxy\ProxyException $e, $code) use ($app) {
+    return $app->json(array('Message' => 'Doctrine failure'), 500);
 });
 
 $app->get('/', function() use ($app) {
