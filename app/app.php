@@ -1,4 +1,6 @@
 <?php
+use Symfony\Component\HttpFoundation\Response;
+
 defined('APPLICATION_ENV')
     || define('APPLICATION_ENV', (getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'prod'));
 
@@ -62,6 +64,10 @@ $app->before(function() use ($app)
             return $app->json(array('Message' => 'Forbidden'), 403);
         }
     }
+});
+
+$app->error(function (\DBALException $e, $code) use ($app) {
+    return $app->json(array('Message' => 'Database failure'), 500);
 });
 
 $app->get('/', function() use ($app) {
