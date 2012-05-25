@@ -56,7 +56,6 @@ $app->before(function() use ($app)
     } else {
         /** @var $em Doctrine\ORM\EntityManager */
         $em = $app['db.orm.em'];
-        var_dump(APPLICATION_ENV);
         $query = $em->createQuery(
             'SELECT u.password FROM Pollex\Entity\User u WHERE u.email = ?1');
         $query->setParameter('1', $username);

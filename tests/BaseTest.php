@@ -19,7 +19,7 @@ class BaseTestCase extends BaseWebTestCase
 
     public function testHttpAuth()
     {
-        //$this->markTestIncomplete('not working yet, because there are no possibility to authentificate yet');
+        $this->markTestIncomplete(APPLICATION_ENV);
         $client = $this->createClient();
         $crawler = $client->request('GET', '/', array(), array(), array(
             'PHP_AUTH_USER' => 'john.doe@example.com',
@@ -29,5 +29,10 @@ class BaseTestCase extends BaseWebTestCase
         //$result = json_decode($client->getResponse()->getContent());
         //$this->assertObjectHasAttribute('name', $result);
         //$this->assertEquals($result->name, 'foo');
+    }
+
+    public function testHttpAuthNotAuthorised()
+    {
+        $this->markTestIncomplete(APPLICATION_ENV);
     }
 }
