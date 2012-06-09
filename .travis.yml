@@ -7,6 +7,7 @@ before_script:
   - "php composer.phar install"
   - "mysql -uroot -e 'create database pollex;'"
   - 'java -jar build/liquibase.jar --driver=com.mysql.jdbc.Driver --classpath=build/databasedriver/mysql-connector-java-5.1.17-bin.jar --changeLogFile=data/sql/changelog.xml --url="jdbc:mysql://127.0.0.1:3306/pollex" --username=root --password="" --contexts="test" migrate'
+  - "php test.php"
 env:
   - APPLICATION_ENV=citest
 
