@@ -5,4 +5,4 @@ defined('APPLICATION_ENV')
 $env = APPLICATION_ENV;
 $config = require __DIR__ . '/app/config.php';
 
-echo $config['db'][$env];
+var_dump($config['db'][$env]);
