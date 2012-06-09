@@ -9,7 +9,6 @@ require_once __DIR__.'/bootstrap.php';
 $config = require __DIR__ . '/config.php';
 
 $env = APPLICATION_ENV;
-var_dump($env);
 $app = new Silex\Application();
 $app['debug'] = true;
 
@@ -61,6 +60,7 @@ $app->before(function() use ($app)
             'SELECT u.password FROM Pollex\Entity\User u WHERE u.email = ?1');
         $query->setParameter('1', $username);
         $result = $query->getResult();
+        var_dump($result);
         if($result[0]['password'] !== $password) {
             return $app->json(array('Message' => 'Forbidden'), 403);
         }
