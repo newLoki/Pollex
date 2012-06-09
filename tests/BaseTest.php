@@ -19,7 +19,7 @@ class BaseTestCase extends BaseWebTestCase
 
     public function testHttpAuth()
     {
-        $this->markTestIncomplete(APPLICATION_ENV);
+        //$this->markTestIncomplete(APPLICATION_ENV);
         $client = $this->createClient();
         $crawler = $client->request('GET', '/', array(), array(), array(
             'PHP_AUTH_USER' => 'john.doe@example.com',
