@@ -9,6 +9,7 @@ require_once __DIR__.'/bootstrap.php';
 $config = require __DIR__ . '/config.php';
 
 $env = APPLICATION_ENV;
+var_dump($env);
 $app = new Silex\Application();
 $app['debug'] = true;
 
