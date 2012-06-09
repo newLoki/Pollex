@@ -12,4 +12,4 @@ env:
   - APPLICATION_ENV=citest
 
 script:
-  - phpunit --configuration phpunit.travis.xml.dist --coverage-text
+  - phpunit --configuration phpunit.travis.xml.dist --coverage-text --debug
