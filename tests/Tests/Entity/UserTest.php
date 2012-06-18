@@ -79,6 +79,4 @@ class UserTest extends \Tests\TestCase
         $this->_user->setPassword($password);
         $this->assertEquals($password, $this->_user->getPassword());
     }
-
-    //@todo tests for groups
 }
