@@ -12,7 +12,6 @@ class BaseTestCase extends BaseWebTestCase
         //dont refactor to use require_once, this will break all -.-
         $app = require realpath(__DIR__.'/../app/app.php');
 
-
         return $app;
     }
 
