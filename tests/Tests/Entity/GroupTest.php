@@ -23,23 +23,6 @@ class GroupTest extends \Tests\TestCase
         );
     }
 
-    public function testCreatedTime()
-    {
-        $this->assertInstanceOf(
-            'DateTime',
-            $this->_group->getCreated()
-        );
-    }
-
-    public function testUpdatesTime()
-    {
-        $this->_group->createUpdateDateTime();
-        $this->assertInstanceOf(
-            'DateTime',
-            $this->_group->getUpdated()
-        );
-    }
-
     public function testName()
     {
         $this->_group->setName('foo');

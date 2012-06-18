@@ -1,35 +1,14 @@
 <?php
 namespace Pollex\Entity;
 
-/**
- * @Entity @Table(name="group")
- * @HasLifecycleCallbacks
- */
-class Group
+class Group extends Base
 {
-    /**
-     * @Id @Column(type="int") @GeneratedValue
-     * @var int
-     */
-    protected $id;
 
     /**
      * @Column(type="string")
      * @var string
      */
     protected $name;
-
-    /**
-     * @Column(type="datetime")
-     * @var \DateTime
-     */
-    protected $created;
-
-    /**
-     * @Column(type="datetime")
-     * @var \DateTime
-     */
-    protected $updated;
 
     /**
      * @ManyToMany(targetEntity="User", inversedBy="groups")
@@ -45,38 +24,8 @@ class Group
      */
     public function __construct()
     {
-        $this->created = new \DateTime();
+        parent::__construct();
         $this->users = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Set updated field to now()
-     *
-     * @PrePersist
-     */
-    public function createUpdateDateTime()
-    {
-        $this->updated = new \DateTime();
-    }
-
-    /**
-     * Get when group was created
-     *
-     * @return \DateTime
-     */
-    public function getCreated()
-    {
-        return $this->created;
-    }
-
-    /**
-     * Get object id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
     /**
@@ -97,26 +46,6 @@ class Group
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Setter when object was last updated
-     *
-     * @param \DateTime $updated
-     */
-    public function setUpdated($updated)
-    {
-        $this->updated = $updated;
-    }
-
-    /**
-     * Getter when object was last time updated
-     *
-     * @return \DateTime
-     */
-    public function getUpdated()
-    {
-        return $this->updated;
     }
 
     /**

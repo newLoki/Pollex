@@ -23,22 +23,7 @@ class UserTest extends \Tests\TestCase
         );
     }
 
-    public function testCreatedTime()
-    {
-        $this->assertInstanceOf(
-            'DateTime',
-            $this->_user->getCreated()
-        );
-    }
 
-    public function testUpdatesTime()
-    {
-        $this->_user->createUpdateDateTime();
-        $this->assertInstanceOf(
-            'DateTime',
-            $this->_user->getUpdated()
-        );
-    }
 
     public function testBirthdate()
     {

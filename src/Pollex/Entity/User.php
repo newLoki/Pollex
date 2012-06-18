@@ -5,13 +5,8 @@ namespace Pollex\Entity;
  * @Entity @Table(name="users")
  * @HasLifecycleCallbacks
  */
-class User
+class User extends Base
 {
-    /**
-     * @Id @Column(type="integer") @GeneratedValue
-     * @var int
-     **/
-    protected $id;
 
     /**
      * @Column(type="string")
@@ -44,18 +39,6 @@ class User
     protected $password;
 
     /**
-     * @Column(type="datetime")
-     * @var \DateTime
-     */
-    protected $created;
-
-    /**
-     * @Column(type="datetime")
-     * @var \DateTime
-     */
-    protected $updated;
-
-    /**
      * @ManyToMany(targetEntity="Group", mappedBy="users")
      */
     protected $groups;
@@ -68,17 +51,8 @@ class User
      */
     public function __construct()
     {
-        $this->created = new \DateTime();
+        parent::__construct();
         $this->groups = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Set updated field to now()
-     * @PrePersist
-     */
-    public function createUpdateDateTime()
-    {
-        $this->updated = new \DateTime();
     }
 
     /**
@@ -99,16 +73,6 @@ class User
     public function getBirthdate()
     {
         return $this->birthdate;
-    }
-
-    /**
-     * Return, when user was created
-     *
-     * @return \DateTime
-     */
-    public function getCreated()
-    {
-        return $this->created;
     }
 
     /**
