@@ -19,20 +19,43 @@ class BaseTestCase extends BaseWebTestCase
 
     public function testHttpAuth()
     {
-        //$this->markTestIncomplete(APPLICATION_ENV);
         $client = $this->createClient();
         $crawler = $client->request('GET', '/', array(), array(), array(
             'PHP_AUTH_USER' => 'john.doe@example.com',
             'PHP_AUTH_PW'   => '5f4dcc3b5aa765d61d8327deb882cf99'
         ));
-        $this->assertTrue($client->getResponse()->isOk());
-        //$result = json_decode($client->getResponse()->getContent());
-        //$this->assertObjectHasAttribute('name', $result);
-        //$this->assertEquals($result->name, 'foo');
+
+        /** @var $response \Symfony\Component\HttpFoundation\JsonResponse */
+        $response = $client->getResponse();
+        $this->assertTrue($response->isOk());
+        $this->assertEquals(200, $response->getStatusCode());
     }
 
-    public function testHttpAuthNotAuthorised()
+    public function testHttpAuthNotAuthorisedWrongPassword()
     {
-        $this->markTestIncomplete(APPLICATION_ENV);
+        $client = $this->createClient();
+        $crawler = $client->request('GET', '/', array(), array(), array(
+            'PHP_AUTH_USER' => 'john.doe@example.com',
+            'PHP_AUTH_PW'   => 'foo'
+        ));
+
+        /** @var $response \Symfony\Component\HttpFoundation\JsonResponse */
+        $response = $client->getResponse();
+        $this->assertFalse($response->isOk());
+        $this->assertEquals(403, $response->getStatusCode());
+    }
+
+    public function testHttpAuthNotAuthorisedWrongUser()
+    {
+        $client = $this->createClient();
+        $crawler = $client->request('GET', '/', array(), array(), array(
+            'PHP_AUTH_USER' => 'bar@example.com',
+            'PHP_AUTH_PW'   => 'foo'
+        ));
+
+        /** @var $response \Symfony\Component\HttpFoundation\JsonResponse */
+        $response = $client->getResponse();
+        $this->assertFalse($response->isOk());
+        $this->assertEquals(403, $response->getStatusCode());
     }
 }
