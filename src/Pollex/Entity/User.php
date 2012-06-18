@@ -1,14 +1,8 @@
 <?php
 namespace Pollex\Entity;
 
-/**
- * @Entity @Table(name="users")
- * @HasLifecycleCallbacks
- */
 class User extends Base
 {
-    const TYPE = 'user';
-
     /**
      * @Column(type="string")
      * @var string

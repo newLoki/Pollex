@@ -3,8 +3,6 @@ namespace Pollex\Entity;
 
 class Group extends Base
 {
-    const TYPE = 'group';
-
     /**
      * @Column(type="string")
      * @var string

@@ -7,12 +7,12 @@ use Tests as Base;
 
 class BaseTest extends \Tests\TestCase
 {
-    /** @var FakeBase */
+    /** @var Fake */
     protected $_entity;
 
     public function setUp()
     {
-        $this->_entity = new FakeBase();
+        $this->_entity = new Fake();
     }
 
     public function testCreatedTime()
@@ -51,7 +51,7 @@ class BaseTest extends \Tests\TestCase
 }
 
 /** This exists only to test abstract class */
-class FakeBase extends \Pollex\Entity\Base {
+class Fake extends \Pollex\Entity\Base {
     CONST TYPE = 'fake';
 
 }
