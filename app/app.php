@@ -71,8 +71,15 @@ $app->before(function() use ($app)
     }
 });
 
-$app->error(function (\Doctrine\ORM\Proxy\ProxyException $e, $code) use ($app) {
-    return $app->json(array('Message' => 'Doctrine failure'), 500);
+$app->error(function (\Doctrine\ORM\ORMException $e, $code) use ($app) {
+    if(!$app['debug']) {
+        return $app->json(array('Message' => 'Doctrine failure'), 500);
+    } else {
+        return $app->json(array(
+            'Message' => $e->getMessage(),
+            'Trace' => $e->getTraceAsString()
+        ), 500);
+    }
 });
 
 $app->get('/', function() use ($app) {

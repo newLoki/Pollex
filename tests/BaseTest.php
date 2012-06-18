@@ -26,7 +26,7 @@ class BaseTestCase extends BaseWebTestCase
 
         /** @var $response \Symfony\Component\HttpFoundation\JsonResponse */
         $response = $client->getResponse();
-        $this->assertTrue($response->isOk());
+        $this->assertTrue($response->isOk(), $response->getContent());
         $this->assertEquals(200, $response->getStatusCode());
     }
 
