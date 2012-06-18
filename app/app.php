@@ -60,8 +60,12 @@ $app->before(function() use ($app)
             'SELECT u.password FROM Pollex\Entity\User u WHERE u.email = ?1');
         $query->setParameter('1', $username);
         $result = $query->getResult();
-        var_dump($result);
-        if($result[0]['password'] !== $password) {
+
+        /**
+         * if result is empty, i.e.: user doesn't exists or have wrong credentials
+         * return status code 403 (Forbidden)
+         */
+        if (empty($result) || $result[0]['password'] !== $password) {
             return $app->json(array('Message' => 'Forbidden'), 403);
         }
     }
