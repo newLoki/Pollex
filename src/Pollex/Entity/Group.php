@@ -1,6 +1,10 @@
 <?php
 namespace Pollex\Entity;
 
+/**
+ * @Entity
+ * @Table(name="groups")
+ */
 class Group extends Base
 {
     /**

@@ -3,8 +3,8 @@
 namespace Pollex\Entity;
 
 /**
-* @Entity @Table(name="polls")
 * @HasLifecycleCallbacks
+* @MappedSuperclass
 */
 abstract class Base
 {
