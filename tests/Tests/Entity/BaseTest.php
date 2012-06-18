@@ -37,7 +37,21 @@ class BaseTest extends \Tests\TestCase
         $this->_entity->setId(1);
         $this->assertEquals(1, $this->_entity->getid());
     }
+
+    public function testType()
+    {
+        $this->assertEquals('fake', $this->_entity->getType());
+    }
+
+    public function testUrl()
+    {
+        $this->_entity->setId(1);
+        $this->assertEquals('/fakes/1', $this->_entity->getUrl());
+    }
 }
 
 /** This exists only to test abstract class */
-class FakeBase extends \Pollex\Entity\Base {}
+class FakeBase extends \Pollex\Entity\Base {
+    CONST TYPE = 'fake';
+
+}

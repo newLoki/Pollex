@@ -8,6 +8,8 @@ namespace Pollex\Entity;
 */
 abstract class Base
 {
+    const TYPE = 'base';
+
     /**
      * @Id
      * @Column(type="integer")
@@ -86,5 +88,15 @@ abstract class Base
     public function setId($id)
     {
         $this->id = (int) $id;
+    }
+
+    public function getType()
+    {
+        return static::TYPE;
+    }
+
+    public function getUrl()
+    {
+        return '/' . static::TYPE . 's' . '/' . $this->getid();
     }
 }

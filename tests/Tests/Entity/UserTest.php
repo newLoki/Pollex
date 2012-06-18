@@ -64,4 +64,15 @@ class UserTest extends \Tests\TestCase
         $this->_user->setPassword($password);
         $this->assertEquals($password, $this->_user->getPassword());
     }
+
+    public function testUrl()
+    {
+        $this->_user->setId(1);
+        $this->assertEquals('/users/1', $this->_user->getUrl());
+    }
+
+    public function testType()
+    {
+        $this->assertEquals(Entity\User::TYPE, $this->_user->getType());
+    }
 }

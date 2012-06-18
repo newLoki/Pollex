@@ -43,4 +43,14 @@ class GroupTest extends \Tests\TestCase
         $this->assertEquals('foo', $users[0]->getSurname());
     }
 
+    public function testUrl()
+    {
+        $this->_group->setId(1);
+        $this->assertEquals('/groups/1', $this->_group->getUrl());
+    }
+
+    public function testType()
+    {
+        $this->assertEquals(Entity\Group::TYPE, $this->_group->getType());
+    }
 }

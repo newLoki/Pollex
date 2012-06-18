@@ -7,6 +7,7 @@ namespace Pollex\Entity;
  */
 class User extends Base
 {
+    const TYPE = 'user';
 
     /**
      * @Column(type="string")
