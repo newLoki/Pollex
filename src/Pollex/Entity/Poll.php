@@ -20,6 +20,12 @@ class Poll extends Base
     protected $author;
 
     /**
+     * @Column(type="text")
+     * @var string
+     */
+    protected $description;
+
+    /**
      * @param string $name
      */
     public function setName($name)
@@ -53,5 +59,25 @@ class Poll extends Base
     public function getAuthor()
     {
         return $this->author;
+    }
+
+    /**
+     * Setter for poll description
+     *
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * Getter for poll description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 }

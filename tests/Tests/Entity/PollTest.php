@@ -35,13 +35,6 @@ class PollTest extends \Tests\TestCase
     }
 
     /**
-     * get|setAuthor -> \Pollex\Entity\User()
-     * get|setDescription
-     * getQuestions -> \Pollex\Entity\Question -> markTestIncomplete
-     * addQuestion -> markTestIncomplete
-     */
-
-    /**
      * Also test with stdClass and thrown exception
      */
     public function testAuthor()
@@ -63,5 +56,31 @@ class PollTest extends \Tests\TestCase
     {
         $author = new \stdClass();
         $this->_poll->setAuthor($author);
+    }
+
+    public function testDescription()
+    {
+        //$this->markTestIncomplete();
+        $this->_poll->setDescription('lorem ipsum');
+        $this->assertEquals('lorem ipsum', $this->_poll->getDescription());
+    }
+
+
+    public function testAddQuestion()
+    {
+        $this->markTestIncomplete();
+    }
+
+    /**
+     * @expectedException PHPUnit_Framework_Error
+     */
+    public function testAddWrongQuestions()
+    {
+        $this->markTestIncomplete();
+    }
+
+    public function getQuestions()
+    {
+        $this->markTestIncomplete();
     }
 }
