@@ -16,6 +16,13 @@ class QuestionTest extends \Tests\TestCase
 
     public function testTitle()
     {
-        $this->markTestIncomplete();
+        $this->_question->setTitle('foo');
+        $this->assertEquals('foo', $this->_question->getTitle());
+    }
+
+    public function testGetUrlParts()
+    {
+        $this->markTestIncomplete('Should prove if reimplementation of this function work correct');
+
     }
 }
