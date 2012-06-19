@@ -54,25 +54,6 @@ class BaseTest extends \Tests\TestCase
         $this->_entity->setId(1);
         $this->assertEquals(array('fakes', 1), $this->_entity->getUrlParts());
     }
-
-    public function testGetDeepUrlParts()
-    {
-        $this->markTestIncomplete();
-        $poll = new Entity\Poll();
-        $poll->setId(1);
-        $question = new Entity\Poll\Question();
-        $question->setId(2);
-        $poll->addQuestion($question);
-        $urlParts = $question->getUrlParts();
-        $expected = array(
-            'polls',
-            1,
-            'questions',
-            2
-        );
-
-        $this->assertEquals($expected, $urlParts);
-    }
 }
 
 /** This exists only to test abstract class */
