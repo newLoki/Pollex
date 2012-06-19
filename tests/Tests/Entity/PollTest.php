@@ -68,7 +68,10 @@ class PollTest extends \Tests\TestCase
 
     public function testAddQuestion()
     {
-        $this->markTestIncomplete();
+        $question = new Entity\Poll\Question();
+        $question->setId(1);
+        $this->_poll->addQuestion($question);
+
     }
 
     /**
@@ -76,11 +79,23 @@ class PollTest extends \Tests\TestCase
      */
     public function testAddWrongQuestions()
     {
-        $this->markTestIncomplete();
+        $question = new \stdClass();
+        $this->_poll->addQuestion($question);
     }
 
-    public function getQuestions()
+    public function testGetQuestions()
     {
-        $this->markTestIncomplete();
+        $question = new Entity\Poll\Question();
+        $question->setId(1);
+
+        $this->_poll->addQuestion($question);
+        $questions = $this->_poll->getQuestions();
+        foreach ($questions as $question) {
+            $this->assertInstanceOf(
+                'Pollex\Entity\Poll\Question',
+                $question
+            );
+        }
+
     }
 }

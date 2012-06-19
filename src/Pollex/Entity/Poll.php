@@ -26,6 +26,12 @@ class Poll extends Base
     protected $description;
 
     /**
+     * @ManyToOne(targetEntity="Question")
+     * @var \Pollex\Entity\Poll\Question
+     */
+    protected $questions;
+
+    /**
      * @param string $name
      */
     public function setName($name)
@@ -79,5 +85,25 @@ class Poll extends Base
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Add a new question
+     *
+     * @param \Pollex\Entity\Poll\Question $question
+     */
+    public function addQuestion(\Pollex\Entity\Poll\Question $question)
+    {
+        $this->questions[] = $question;
+    }
+
+    /**
+     * Return all questions, related to this poll
+     *
+     * @return Poll\Question
+     */
+    public function getQuestions()
+    {
+        return $this->questions;
     }
 }
