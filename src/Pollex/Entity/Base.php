@@ -96,8 +96,31 @@ abstract class Base
         return strtolower(array_pop($parts));
     }
 
+    public function getUrlParts()
+    {
+        //@todo get parts by namespace, by stripping \Pollex\Entity
+        $parts = array(
+            $this->_pluralizeForUrl($this->getType()),
+            $this->getid()
+        );
+
+        return $parts;
+    }
+
     public function getUrl()
     {
-        return '/' . $this->getType() . 's' . '/' . $this->getid();
+        $urlParts =  array(
+            $this->_pluralizeForUrl($this->getType()),
+            $this->getid()
+        );
+
+        $url =  '/' . implode('/', $urlParts);
+
+        return $url;
+    }
+
+    protected function _pluralizeForUrl($base)
+    {
+        return $base . 's';
     }
 }
