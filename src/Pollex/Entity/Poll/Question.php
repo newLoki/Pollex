@@ -23,6 +23,12 @@ class Question extends \Pollex\Entity\Base
     protected $poll;
 
     /**
+     * @Column(type="text")
+     * @var string
+     */
+    protected $value;
+
+    /**
      * @Column(type="string")
      * @param string $title
      */
@@ -75,5 +81,25 @@ class Question extends \Pollex\Entity\Base
     public function getPoll()
     {
         return $this->poll;
+    }
+
+    /**
+     * Set the value of the question
+     *
+     * @param string $value
+     */
+    public function setValue($value)
+    {
+        $this->value = $value;
+    }
+
+    /**
+     * Get question value
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->value;
     }
 }

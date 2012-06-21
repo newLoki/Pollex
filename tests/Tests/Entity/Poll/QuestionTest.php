@@ -68,4 +68,14 @@ class QuestionTest extends \Tests\TestCase
         return $mockPoll;
     }
 
+    public function testValue()
+    {
+        $this->_question->setValue('fooobarbaz');
+        $this->assertEquals('fooobarbaz', $this->_question->getValue());
+    }
+
+    /**
+     * - type (like poll)
+     */
+
 }
