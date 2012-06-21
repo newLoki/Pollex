@@ -74,6 +74,23 @@
             <column name="group_id" header="group_id" type="NUMERIC" />
         </loadData>
     </changeSet>
+    <changeSet author="newLoki" id="7">
+        <createTable tableName="polls">
+            <column name="id" type="INT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="name" type="VARCHAR(255)" />
+            <column name="author_id" type="INT" />
+            <column name="created" type="DATETIME" />
+            <column name="updated" type="DATETIME" />
+            <column name="description" type="TEXT" /><!-- @todo should map to mysql text type -->
+        </createTable>
+        <addForeignKeyConstraint constraintName="fk_author_id"
+            baseTableName="polls" baseColumnNames="author_id"
+            referencedTableName="users" referencedColumnNames="id"
+            onDelete="CASCADE" onUpdate="CASCADE"
+        />
+    </changeSet>
     <!--
     needed tables
     * types -> not needed yet as data table, there are only two types, who can be hardcoded :D
