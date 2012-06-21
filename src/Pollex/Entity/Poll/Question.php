@@ -15,6 +15,15 @@ class Question extends \Pollex\Entity\Base
     protected $title;
 
     /**
+     * @Column(type="string", name="poll_id")
+     * @ManyToOne
+     * @JoinColumn(name="poll_id", referencedColumnName="id")
+     * @var \Pollex\Entity\Poll
+     */
+    protected $poll;
+
+    /**
+     * @Column(type="string")
      * @param string $title
      */
     public function setTitle($title)
@@ -28,5 +37,43 @@ class Question extends \Pollex\Entity\Base
     public function getTitle()
     {
         return $this->title;
+    }
+
+    /**
+     * Return all parts they are needed to build the url
+     *
+     * @return array
+     */
+    public function getUrlParts()
+    {
+        /** @var $poll \Pollex\Entity\Poll */
+        $poll = $this->getPoll();
+
+        return array(
+            $this->_pluralizeForUrl($poll->getType()),
+            $poll->getId(),
+            $this->_pluralizeForUrl($this->getType()),
+            $this->getid()
+        );
+    }
+
+    /**
+     * Set the poll who is related to this question
+     *
+     * @param \Pollex\Entity\Poll $poll
+     */
+    public function setPoll(\Pollex\Entity\Poll $poll)
+    {
+        $this->poll = $poll;
+    }
+
+    /**
+     * Get the poll who is related to this question
+     *
+     * @return \Pollex\Entity\Poll
+     */
+    public function getPoll()
+    {
+        return $this->poll;
     }
 }
