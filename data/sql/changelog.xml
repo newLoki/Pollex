@@ -83,24 +83,51 @@
             <column name="author_id" type="INT" />
             <column name="created" type="DATETIME" />
             <column name="updated" type="DATETIME" />
-            <column name="description" type="TEXT" /><!-- @todo should map to mysql text type -->
+            <column name="description" type="TEXT" />
         </createTable>
-        <addForeignKeyConstraint constraintName="fk_author_id"
-            baseTableName="polls" baseColumnNames="author_id"
-            referencedTableName="users" referencedColumnNames="id"
-            onDelete="CASCADE" onUpdate="CASCADE"
+    </changeSet>
+    <changeSet author="newLoki" id="8">
+        <addForeignKeyConstraint constraintName="fk_poll_author"
+        baseTableName="polls" baseColumnNames="author_id"
+        referencedTableName="users" referencedColumnNames="id"
+        onDelete="CASCADE" onUpdate="CASCADE" />
+    </changeSet>
+    <changeSet author="newLoki" id="9">
+        <createTable tableName="questions">
+            <column name="id" type="INT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="title" type="VARCHAR(255)" />
+            <column name="text" type="TEXT" />
+            <column name="type_id" type="INT" />
+            <column name="poll_id" type="INT" />
+            <column name="created" type="DATETIME" />
+            <column name="updated" type="DATETIME" />
+        </createTable>
+    </changeSet>
+    <changeSet author="newLoki" id="10">
+        <comment>Actually it is only a mock, to get the chance to extend it if there is a needing for</comment>
+        <createTable tableName="types">
+            <column name="id" autoIncrement="true" type="INT">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="name" type="VARCHAR(255)" />
+        </createTable>
+    </changeSet>
+    <changeSet author="newLoki" id="11">
+        <addForeignKeyConstraint constraintName="fk_question_poll"
+        baseTableName="questions" baseColumnNames="poll_id"
+        referencedTableName="polls" referencedColumnNames="id"
+        onDelete="CASCADE" onUpdate="CASCADE"
+        />
+        <addForeignKeyConstraint constraintName="fk_question_type"
+        baseTableName="questions" baseColumnNames="type_id"
+        referencedTableName="types" referencedColumnNames="id"
+        onDelete="CASCADE" onUpdate="CASCADE"
         />
     </changeSet>
-    <!--
-    needed tables
-    * types -> not needed yet as data table, there are only two types, who can be hardcoded :D
-    * polls
-        * id
-        * name
-        * author
-        * created
-        * updated
-        * description
+
+  <!--
     * polls-groups -> udpate docu fpr rights controller
         * id
         * poll_id
@@ -108,14 +135,6 @@
         * delete -> flag
         * update -> flag
         * answer -> flag
-    * questions
-        * id
-        * title
-        * text
-        * type
-        * poll_id
-        * created
-        * updated
     * answers
         * id
         * poll_id
