@@ -98,7 +98,7 @@
                 <constraints primaryKey="true" nullable="false" />
             </column>
             <column name="title" type="VARCHAR(255)" />
-            <column name="text" type="TEXT" />
+            <column name="value" type="TEXT" />
             <column name="type_id" type="INT" />
             <column name="poll_id" type="INT" />
             <column name="created" type="DATETIME" />
