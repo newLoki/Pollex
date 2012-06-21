@@ -166,26 +166,6 @@ class User extends Base
     }
 
     /**
-     * setter, when user was last updated
-     *
-     * @param \DateTime $updated
-     */
-    public function setUpdated($updated)
-    {
-        $this->updated = $updated;
-    }
-
-    /**
-     * Get when user was last updated
-     *
-     * @return \DateTime
-     */
-    public function getUpdated()
-    {
-        return $this->updated;
-    }
-
-    /**
      * Add group membership to user
      *
      * @param Group $group
