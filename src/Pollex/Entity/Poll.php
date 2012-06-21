@@ -14,7 +14,9 @@ class Poll extends Base
     protected $name;
 
     /**
+     * @Column(type="int", name="author_id")
      * @OneToOne(targetEntity="User")
+     * @JoinColumn(name="author_id", referencedColumnName="id")
      * @var \Pollex\Entity\User
      */
     protected $author;
