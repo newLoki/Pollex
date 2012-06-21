@@ -98,7 +98,6 @@ abstract class Base
 
     public function getUrlParts()
     {
-        //@todo get parts by namespace, by stripping \Pollex\Entity
         $parts = array(
             $this->_pluralizeForUrl($this->getType()),
             $this->getid()
@@ -109,10 +108,7 @@ abstract class Base
 
     public function getUrl()
     {
-        $urlParts =  array(
-            $this->_pluralizeForUrl($this->getType()),
-            $this->getid()
-        );
+        $urlParts =  $this->getUrlParts();
 
         $url =  '/' . implode('/', $urlParts);
 
