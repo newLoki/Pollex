@@ -25,7 +25,7 @@ class PollTest extends \Tests\TestCase
 
     public function testType()
     {
-        $this->assertEquals('poll', $this->_poll->getType());
+        $this->assertEquals('poll', $this->_poll->getEntityType());
     }
 
     public function testName()

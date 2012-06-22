@@ -40,7 +40,7 @@ class BaseTest extends \Tests\TestCase
 
     public function testType()
     {
-        $this->assertEquals('fake', $this->_entity->getType());
+        $this->assertEquals('fake', $this->_entity->getEntityType());
     }
 
     public function testUrl()

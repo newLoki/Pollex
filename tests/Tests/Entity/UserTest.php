@@ -73,6 +73,6 @@ class UserTest extends \Tests\TestCase
 
     public function testType()
     {
-        $this->assertEquals('user', $this->_user->getType());
+        $this->assertEquals('user', $this->_user->getEntityType());
     }
 }

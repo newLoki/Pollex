@@ -51,6 +51,6 @@ class GroupTest extends \Tests\TestCase
 
     public function testType()
     {
-        $this->assertEquals('group', $this->_group->getType());
+        $this->assertEquals('group', $this->_group->getEntityType());
     }
 }
