@@ -126,6 +126,18 @@
         onDelete="CASCADE" onUpdate="CASCADE"
         />
     </changeSet>
+    <changeSet author="newLoki" id="12">
+        <createTable tableName="answers">
+            <column name="id" autoIncrement="true" type="BIGINT">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="type_id" type="INT" />
+            <column name="poll_id" type="INT" />
+            <column name="created" type="DATETIME" />
+            <column name="updated" type="DATETIME" />
+            <column name="value" type="VARCHAR(255)" />
+        </createTable>
+    </changeSet>
 
   <!--
     * polls-groups -> udpate docu fpr rights controller
@@ -137,9 +149,9 @@
         * answer -> flag
     * answers
         * id
-        * poll_id
-        * question_id
-        * type
+        * poll_id -> keyConstraint => polls.id
+        * question_id -> keyConstraint => questions.id
+        * type -> keyConstraint => types.id
         * created
         * updated
         * value -> text
