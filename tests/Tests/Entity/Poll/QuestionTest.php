@@ -55,30 +55,27 @@ class QuestionTest extends \Tests\TestCase
 
     protected function getMockPoll($id)
     {
-        $mockPoll = $this->getMockBuilder('\Pollex\Entity\Poll')
-            ->disableOriginalConstructor()
-            ->getMock();
-        $mockPoll->expects(new \PHPUnit_Framework_MockObject_Matcher_AnyInvokedCount())
-            ->method('getId')
-            ->will(new \PHPUnit_Framework_MockObject_Stub_Return($id));
-        $mockPoll->expects(new \PHPUnit_Framework_MockObject_Matcher_AnyInvokedCount())
-             ->method('getEntityType')
-             ->will(new \PHPUnit_Framework_MockObject_Stub_Return('poll'));
+        $mockPoll = $this->getMock('\Pollex\Entity\Poll');
+        $mockPoll->expects($this->any())
+                 ->method('getId')
+                 ->will($this->returnValue($id));
+        $mockPoll->expects($this->any())
+                 ->method('getEntityType')
+                 ->will($this->returnValue('poll'));
 
         return $mockPoll;
     }
 
     protected function getMockType($id)
     {
-        $mockType = $this->getMockBuilder('\Pollex\Entity\Poll\Question\Type')
-                         ->disableOriginalConstructor()
-                         ->getMock();
-        $mockType->expects(new \PHPUnit_Framework_MockObject_Matcher_AnyInvokedCount())
-                 ->method('getId')
-                 ->will(new \PHPUnit_Framework_MockObject_Stub_Return($id));
-        $mockType->expects(new \PHPUnit_Framework_MockObject_Matcher_AnyInvokedCount())
+        $mockType = $this->getMock('\Pollex\Entity\Poll\Question\Type');
+        $mockType->expects($this->any())
                  ->method('getEntityType')
-                 ->will(new \PHPUnit_Framework_MockObject_Stub_Return('type'));
+                 ->will($this->returnValue('type'));
+        $mockType->expects($this->any())
+                 ->method('getId')
+                 ->will($this->returnValue($id));
+
         return $mockType;
     }
 
