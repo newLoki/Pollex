@@ -95,9 +95,4 @@ class QuestionTest extends \Tests\TestCase
         $this->assertEquals('type', $this->_question->getType()->getEntityType());
         $this->assertEquals(1337, $this->_question->getType()->getId());
     }
-
-    /**
-     * - type (like poll)
-     */
-
 }
