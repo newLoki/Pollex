@@ -88,7 +88,7 @@ abstract class Base
         $this->id = (int) $id;
     }
 
-    public function getType()
+    public function getEntityType()
     {
         $fullClass = get_class($this);
         $parts = preg_split('/\\\\/', $fullClass);
@@ -99,7 +99,7 @@ abstract class Base
     public function getUrlParts()
     {
         $parts = array(
-            $this->_pluralizeForUrl($this->getType()),
+            $this->_pluralizeForUrl($this->getEntityType()),
             $this->getid()
         );
 
