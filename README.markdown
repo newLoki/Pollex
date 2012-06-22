@@ -53,3 +53,17 @@ If you want to run the tests, there are certain steps to do before:
     --contexts="test" \
 migrate`
 * Run unittests (`phpunit`)
+
+#Ideas
+Validating POST|PUT request against json schemata with [justinrainbow/json-schema](https://github.com/justinrainbow/json-schema)
+
+#ToDo
+* toJSON for entities
+    * validate against json-schema
+* Group rights on polls
+    * table
+    * entity
+* implement logging
+* answers
+    * table
+    * entity

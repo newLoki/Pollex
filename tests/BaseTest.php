@@ -61,4 +61,16 @@ class BaseTestCase extends BaseWebTestCase
         $this->assertFalse($response->isOk());
         $this->assertEquals(403, $response->getStatusCode());
     }
+
+    public function testHttpAuthWithNoUser()
+    {
+        $client = $this->createClient();
+        $crawler = $client->request('GET', '/', array(), array(), array(
+                    'PHP_AUTH_PW'   => 'foo'
+        ));
+
+        $response = $client->getResponse();
+        $this->assertFalse($response->isOk());
+        $this->assertEquals(401, $response->getStatusCode());
+    }
 }
