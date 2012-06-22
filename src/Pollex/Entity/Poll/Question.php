@@ -15,8 +15,8 @@ class Question extends \Pollex\Entity\Base
     protected $title;
 
     /**
-     * @Column(type="string", name="poll_id")
-     * @ManyToOne
+     * @Column(type="integer", name="poll_id")
+     * @ManyToOne(targetEntity="\Pollex\Entity\Poll")
      * @JoinColumn(name="poll_id", referencedColumnName="id")
      * @var \Pollex\Entity\Poll
      */
@@ -27,6 +27,14 @@ class Question extends \Pollex\Entity\Base
      * @var string
      */
     protected $value;
+
+    /**
+     * @Column(type="integer", name="type_id")
+     * @ManyToOne(targetEntity="\Pollex\Entity\Poll\Question\Type")
+     * @JoinColumn(name="type_id", referenceColumnName="id")
+     * @var \Pollex\Entity\Poll\Question\Type
+     */
+    protected $type;
 
     /**
      * @Column(type="string")
@@ -56,9 +64,9 @@ class Question extends \Pollex\Entity\Base
         $poll = $this->getPoll();
 
         return array(
-            $this->_pluralizeForUrl($poll->getType()),
+            $this->_pluralizeForUrl($poll->getEntityType()),
             $poll->getId(),
-            $this->_pluralizeForUrl($this->getType()),
+            $this->_pluralizeForUrl($this->getEntityType()),
             $this->getid()
         );
     }
@@ -101,5 +109,25 @@ class Question extends \Pollex\Entity\Base
     public function getValue()
     {
         return $this->value;
+    }
+
+    /**
+     * Set question type
+     *
+     * @param \Pollex\Entity\Poll\Question\Type $type
+     */
+    public function setType(\Pollex\Entity\Poll\Question\Type $type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * Get question type
+     *
+     * @return \Pollex\Entity\Poll\Question\Type
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 }
