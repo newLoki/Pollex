@@ -75,7 +75,7 @@ class QuestionTest extends \Tests\TestCase
         $mockType->expects($this->any())
                  ->method('getId')
                  ->will($this->returnValue($id));
-
+        var_dump($mockType);
         return $mockType;
     }
 
