@@ -3,6 +3,8 @@ php:
   - 5.3
   - 5.4
 before_script:
+  - "pyrus install pear.phpunit.de/PHPUnit_MockObject"
+  - "phpenv rehash"
   - "wget http://getcomposer.org/composer.phar"
   - "php composer.phar install"
   - "mysql -uroot -e 'create database pollex;'"
