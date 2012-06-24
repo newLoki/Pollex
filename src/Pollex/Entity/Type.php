@@ -1,5 +1,5 @@
 <?php
-namespace Pollex\Entity\Poll\Question;
+namespace Pollex\Entity;
 
 /**
 * @Entity

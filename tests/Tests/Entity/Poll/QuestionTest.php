@@ -68,14 +68,13 @@ class QuestionTest extends \Tests\TestCase
 
     protected function getMockType($id)
     {
-        $mockType = $this->getMock('\Pollex\Entity\Poll\Question\Type');
+        $mockType = $this->getMock('\Pollex\Entity\Type');
         $mockType->expects($this->any())
                  ->method('getEntityType')
                  ->will($this->returnValue('type'));
         $mockType->expects($this->any())
                  ->method('getId')
                  ->will($this->returnValue($id));
-        var_dump($mockType);
         return $mockType;
     }
 

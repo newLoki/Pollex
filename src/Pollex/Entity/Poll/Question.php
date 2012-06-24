@@ -30,9 +30,9 @@ class Question extends \Pollex\Entity\Base
 
     /**
      * @Column(type="integer", name="type_id")
-     * @ManyToOne(targetEntity="\Pollex\Entity\Poll\Question\Type")
+     * @ManyToOne(targetEntity="\Pollex\Entity\Type")
      * @JoinColumn(name="type_id", referenceColumnName="id")
-     * @var \Pollex\Entity\Poll\Question\Type
+     * @var \Pollex\Entity\Type
      */
     protected $type;
 
@@ -114,9 +114,9 @@ class Question extends \Pollex\Entity\Base
     /**
      * Set question type
      *
-     * @param \Pollex\Entity\Poll\Question\Type $type
+     * @param \Pollex\Entity\Type $type
      */
-    public function setType(\Pollex\Entity\Poll\Question\Type $type)
+    public function setType(\Pollex\Entity\Type $type)
     {
         $this->type = $type;
     }
@@ -124,7 +124,7 @@ class Question extends \Pollex\Entity\Base
     /**
      * Get question type
      *
-     * @return \Pollex\Entity\Poll\Question\Type
+     * @return \Pollex\Entity\Type
      */
     public function getType()
     {
