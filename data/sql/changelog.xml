@@ -162,14 +162,6 @@
         * delete -> flag
         * update -> flag
         * answer -> flag
-    * answers
-        * id
-        * poll_id -> keyConstraint => polls.id
-        * question_id -> keyConstraint => questions.id
-        * type -> keyConstraint => types.id
-        * created
-        * updated
-        * value -> text
     * (rights: group-id <-> poll-id, right => delete, update) -> can be handled with polls-groups table
     -->
 
