@@ -11,6 +11,13 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
     protected $_mockEntityManager;
 
     /**
+     * Holds all mock entities
+     *
+     * @var \Tests\MockContainer
+     */
+    protected $_mockContainer;
+
+    /**
      * mock object for Doctrine's Repository
      *
      * @var \PHPUnit_Framework_MockObject
@@ -28,6 +35,7 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
 
         $this->_mockRepository = $this->_getRepositoryMock();
         $this->_mockEntityManager = $this->_getEntityManagerMock();
+        $this->_mockContainer = new MockContainer();
     }
 
     /**
@@ -131,5 +139,10 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
                 get_class($this),
             )
         );
+    }
+
+    public function getMockEntity()
+    {
+        return $this->_mockContainer;
     }
 }
