@@ -133,10 +133,25 @@
             </column>
             <column name="type_id" type="INT" />
             <column name="poll_id" type="INT" />
+            <column name="question_id" type="INT" />
             <column name="created" type="DATETIME" />
             <column name="updated" type="DATETIME" />
-            <column name="value" type="VARCHAR(255)" />
+            <column name="value" type="TEXT" />
         </createTable>
+    </changeSet>
+    <changeSet author="newLoki" id="13">
+        <addForeignKeyConstraint constraintName="fk_poll_answers"
+        baseTableName="answers" baseColumnNames="poll_id"
+        referencedTableName="polls" referencedColumnNames="id"
+        onDelete="CASCADE" onUpdate="CASCADE"/>
+        <addForeignKeyConstraint constraintName="fk_question_answer"
+        baseTableName="answers" baseColumnNames="question_id"
+        referencedTableName="questions" referencedColumnNames="id"
+        onUpdate="CASCADE" onDelete="CASCADE" />
+        <addForeignKeyConstraint constraintName="fk_answer_type"
+        baseTableName="answers" baseColumnNames="type_id"
+        referencedTableName="types" referencedColumnNames="id"
+        onDelete="CASCADE" onUpdate="CASCADE" />
     </changeSet>
 
   <!--
