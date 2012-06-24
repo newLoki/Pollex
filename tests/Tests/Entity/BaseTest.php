@@ -35,7 +35,7 @@ class BaseTest extends \Tests\TestCase
     public function testId()
     {
         $this->_entity->setId(1);
-        $this->assertEquals(1, $this->_entity->getid());
+        $this->assertEquals(1, $this->_entity->getId());
     }
 
     public function testType()
