@@ -37,6 +37,13 @@ class Question extends \Pollex\Entity\Base
     protected $type;
 
     /**
+     * @OneToMany(targetEntity="\Pollex\Entity\Poll\Question\Answer")
+     *
+     * @var \Pollex\Entity\Poll\Question\Answer[]
+     */
+    protected $answers;
+
+    /**
      * @Column(type="string")
      * @param string $title
      */
@@ -67,7 +74,7 @@ class Question extends \Pollex\Entity\Base
             $this->_pluralizeForUrl($poll->getEntityType()),
             $poll->getId(),
             $this->_pluralizeForUrl($this->getEntityType()),
-            $this->getid()
+            $this->getId()
         );
     }
 
@@ -129,5 +136,20 @@ class Question extends \Pollex\Entity\Base
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * Return all related answers
+     *
+     * @return Question\Answer[]
+     */
+    public function getAnswers()
+    {
+        return $this->answers;
+    }
+
+    public function addAnswer(\Pollex\Entity\Poll\Question\Answer $_answer)
+    {
+        $this->answers[] = $_answer;
     }
 }

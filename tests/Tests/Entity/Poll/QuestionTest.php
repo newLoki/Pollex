@@ -91,4 +91,56 @@ class QuestionTest extends \Tests\TestCase
         $this->assertEquals('type', $this->_question->getType()->getEntityType());
         $this->assertEquals(1337, $this->_question->getType()->getId());
     }
+
+    public function testOneAnswer()
+    {
+        $this->assertTrue((0 == count($this->_question->getAnswers())));
+
+        $mockAnswer = $this->getMockAnswer(1);
+        $this->_question->addAnswer($mockAnswer);
+        $answers = $this->_question->getAnswers();
+        $this->assertTrue((1 == count($answers)));
+        $this->assertEquals(1, $answers[0]->getId());
+        $this->assertInstanceOf(
+            '\Pollex\Entity\Poll\Question\Answer',
+            $answers[0]
+        );
+
+
+
+    }
+
+    public function testMoreAnswers()
+    {
+        $mockAnswer = $this->getMockAnswer(1);
+        $mockAnswer2 = $this->getMockAnswer(2);
+        $this->_question->addAnswer($mockAnswer);
+        $this->_question->addAnswer($mockAnswer2);
+
+        /** @var $answers \Pollex\Entity\Poll\Question\Answer */
+        $answers = $this->_question->getAnswers();
+        $this->assertTrue((2 == count($answers)));
+
+        foreach ($answers as $answer) {
+            $this->assertInstanceOf(
+                '\Pollex\Entity\Poll\Question\Answer',
+                $answer
+            );
+        }
+
+        $this->assertEquals(1, $answers[0]->getId());
+        $this->assertEquals(2, $answers[1]->getId());
+    }
+
+    protected function getMockAnswer($id)
+    {
+        $mockAnswer = $this->getMock('\Pollex\Entity\Poll\Question\Answer');
+        $mockAnswer->expects($this->any())
+            ->method('getEntityType')
+            ->will($this->returnValue('question'));
+        $mockAnswer->expects($this->any())
+            ->method('getId')
+            ->will($this->returnValue($id));
+        return $mockAnswer;
+    }
 }
