@@ -73,7 +73,7 @@ abstract class Base
      *
      * @return int
      */
-    public function getid()
+    public function getId()
     {
         return $this->id;
     }
@@ -100,7 +100,7 @@ abstract class Base
     {
         $parts = array(
             $this->_pluralizeForUrl($this->getEntityType()),
-            $this->getid()
+            $this->getId()
         );
 
         return $parts;
