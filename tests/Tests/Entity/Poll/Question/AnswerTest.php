@@ -22,4 +22,16 @@ class AnswerTest extends \Tests\TestCase
         $this->_answer->setId(1);
         $this->assertEquals(1, $this->_answer->getId());
     }
+
+    public function testGetUrlParts()
+    {
+        $this->markTestIncomplete();
+    }
+    /**
+     * - url (urlParts)
+     * - type
+     *  - poll
+     *  - question
+     *  - value
+     */
 }
