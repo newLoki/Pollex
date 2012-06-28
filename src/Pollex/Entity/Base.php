@@ -2,6 +2,8 @@
 
 namespace Pollex\Entity;
 
+//@todo update DateTime object should be instanciatet, if it is null and a setter is triggered
+
 /**
 * @HasLifecycleCallbacks
 * @MappedSuperclass
