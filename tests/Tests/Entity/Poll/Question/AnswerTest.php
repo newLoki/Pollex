@@ -94,4 +94,38 @@ class AnswerTest extends \Tests\TestCase
         $this->assertInternalType('string', $value);
         $this->assertEquals("1", $value);
     }
+
+    public function testGetOutputObject()
+    {
+        $this->_answer->setId(1);
+        $poll = new \Pollex\Entity\Poll();
+        $poll->setId(2);
+        $this->_answer->setPoll($poll);
+        $question = new \Pollex\Entity\Poll\Question();
+        $question->setId(3);
+        $question->setPoll($poll);
+        $this->_answer->setQuestion($question);
+        $type = new \Pollex\Entity\Type();
+        $type->setId(4);
+        $type->setName('fooo');
+        $this->_answer->setType($type);
+        $this->_answer->setValue('barbar');
+        
+        $expected = new \stdClass();
+        $expected->id = 1;
+        $expected->poll = 2;
+        $expected->question = 3;
+        $expected->created = $this->_answer->getCreated()->format(\Pollex\Entity\Base::DATE_FORMAT);
+        $expected->updated = $this->_answer->getUpdated()->format(\Pollex\Entity\Base::DATE_FORMAT);
+        $expected->url = '/polls/2/questions/3/answers/1';
+        $expected->type = new \stdClass();
+        $expected->type->id = 4;
+        $expected->type->name = 'fooo';
+        $expected->type->url = '/types/4';
+        $expected->type->created = $type->getCreated()->format(\Pollex\Entity\Base::DATE_FORMAT);
+        $expected->type->updated = $type->getUpdated()->format(\Pollex\Entity\Base::DATE_FORMAT);
+        $expected->value = "barbar";
+        
+        $this->assertEquals($expected, $this->_answer->getOutputObject());
+    }
 }

@@ -128,4 +128,15 @@ class Answer extends \Pollex\Entity\Base
     {
         return (string) $this->value;
     }
+
+    public function getOutputObject()
+    {
+        $baseObject = parent::getOutputObject();
+        $baseObject->poll = $this->getPoll()->getId();
+        $baseObject->question = $this->getQuestion()->getId();
+        $baseObject->type = $this->getType()->getOutputObject();
+        $baseObject->value = $this->getValue();
+
+        return $baseObject;
+    }
 }
