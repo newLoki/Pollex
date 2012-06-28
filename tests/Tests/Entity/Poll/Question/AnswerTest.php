@@ -75,7 +75,23 @@ class AnswerTest extends \Tests\TestCase
 
         $this->assertEquals(1, $this->_answer->getPoll()->getId());
     }
-    /**
-     *  - value
-     */
+
+    public function testStringValueShouldBeString()
+    {
+        $expected = "Lorem Ipsum, 1234 ÄÖÜäöü!$";
+        $this->_answer->setValue($expected);
+
+        $value = $this->_answer->getValue();
+
+        $this->assertInternalType('string', $value);
+        $this->assertEquals($expected, $value);
+    }
+
+    public function testNumericValueShouldBeString()
+    {
+        $this->_answer->setValue(1);
+        $value = $this->_answer->getValue();
+        $this->assertInternalType('string', $value);
+        $this->assertEquals("1", $value);
+    }
 }

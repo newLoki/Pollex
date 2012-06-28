@@ -33,6 +33,12 @@ class Answer extends \Pollex\Entity\Base
     protected $poll;
 
     /**
+     * @Column(type="integer", name="value")
+     * @var string
+     */
+    protected $value;
+
+    /**
      * set question which is related to this answers
      *
      * @param \Pollex\Entity\Poll\Question $question
@@ -101,5 +107,25 @@ class Answer extends \Pollex\Entity\Base
     public function getPoll()
     {
         return $this->poll;
+    }
+
+    /**
+     * Set value of this answer
+     *
+     * @param string $value
+     */
+    public function setValue($value)
+    {
+        $this->value = (string) $value;
+    }
+
+    /**
+     * Get value of this question
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return (string) $this->value;
     }
 }
