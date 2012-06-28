@@ -2,8 +2,6 @@
 
 namespace Pollex\Entity;
 
-//@todo update DateTime object should be instanciatet, if it is null and a setter is triggered
-
 /**
 * @HasLifecycleCallbacks
 * @MappedSuperclass
@@ -41,6 +39,7 @@ abstract class Base
     public function __construct()
     {
         $this->created = new \DateTime();
+        $this->updated = $this->created;
     }
 
     /**

@@ -23,13 +23,25 @@ class BaseTest extends \Tests\TestCase
         );
     }
 
-    public function testUpdatesTime()
+    public function testUpdatesTimeAfterCreate()
     {
+        $this->assertInstanceOf(
+            'DateTime',
+            $this->_entity->getUpdated()
+        );
+        $this->assertEquals($this->_entity->getCreated(), $this->_entity->getUpdated());
+    }
+
+    public function testUpdatesTimeAfterUpdate()
+    {
+        sleep(1); //else update time is same as created, because this is seconds based
         $this->_entity->createUpdateDateTime();
         $this->assertInstanceOf(
             'DateTime',
             $this->_entity->getUpdated()
         );
+
+        $this->assertNotEquals($this->_entity->getCreated(), $this->_entity->getUpdated());
     }
 
     public function testId()
