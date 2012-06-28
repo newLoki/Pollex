@@ -7,6 +7,9 @@ namespace Pollex\Entity;
  */
 class User extends Base
 {
+    /** Date format for user birthdate */
+    const DATE_BIRTH = 'Y-m-d';
+
     /**
      * @Column(type="string")
      * @var string
@@ -178,10 +181,28 @@ class User extends Base
     /**
      * Get all groups, where user is member of
      *
-     * @return \Doctrine\Common\Collections\ArrayCollection
+     * @return \Pollex\Entity\Group[]
      */
     public function getGroups()
     {
         return $this->groups;
+    }
+
+    public function getOutputObject()
+    {
+        $baseObject = parent::getOutputObject();
+        $baseObject->surname = $this->getSurname();
+        $baseObject->lastname = $this->getLastname();
+        $baseObject->birthdate = $this->getBirthdate()->format(self::DATE_BIRTH);
+        $baseObject->groups = array();
+        foreach ($this->getGroups() as $group) {
+            $groupObject = new \stdClass();
+            $groupObject->id = $group->getId();
+            $groupObject->url = $group->getUrl();
+            $groupObject->name = $group->getName();
+            $baseObject->groups[] = $groupObject;
+        }
+
+        return $baseObject;
     }
 }

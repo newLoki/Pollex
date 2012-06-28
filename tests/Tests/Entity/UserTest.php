@@ -75,4 +75,35 @@ class UserTest extends \Tests\TestCase
     {
         $this->assertEquals('user', $this->_user->getEntityType());
     }
+
+    public function testOutputObject()
+    {
+        $this->_user->createUpdateDateTime();
+        $this->_user->setId(1);
+        $this->_user->setSurname('John');
+        $this->_user->setLastname('Doe');
+        $birthDate = \DateTime::createFromFormat('Y-m-d', '1982-07-05');
+        $this->_user->setBirthdate($birthDate);
+        $group = new Entity\Group();
+        $group->setId(1);
+        $group->setName('admin');
+        $this->_user->addGroup($group);
+
+
+        $expected = new \stdClass();
+        $expected->id = 1;
+        $expected->url = '/users/1';
+        $expected->surname = 'John';
+        $expected->lastname = 'Doe';
+        $expected->birthdate = '1982-07-05';
+        $expectedGroup = new \stdClass();
+        $expectedGroup->id = 1;
+        $expectedGroup-> url = "/groups/1";
+        $expectedGroup->name = "admin";
+        $expected->groups = array($expectedGroup);
+        $expected->created = $this->_user->getCreated()->format(Entity\Base::DATE_FORMAT);
+        $expected->updated = $this->_user->getUpdated()->format(Entity\Base::DATE_FORMAT);
+
+        $this->assertEquals($expected, $this->_user->getOutputObject());
+    }
 }
