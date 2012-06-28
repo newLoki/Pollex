@@ -71,4 +71,17 @@ class Group extends Base
     {
         return $this->users;
     }
+
+    /**
+     * Get output object for group entity
+     *
+     * @return \stdClass
+     */
+    public function getOutputObject()
+    {
+        $baseObject = parent::getOutputObject();
+        $baseObject->name = $this->getName();
+
+        return $baseObject;
+    }
 }

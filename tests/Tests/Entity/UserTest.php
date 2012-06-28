@@ -87,6 +87,7 @@ class UserTest extends \Tests\TestCase
         $group = new Entity\Group();
         $group->setId(1);
         $group->setName('admin');
+        $group->createUpdateDateTime();
         $this->_user->addGroup($group);
 
 
@@ -100,6 +101,8 @@ class UserTest extends \Tests\TestCase
         $expectedGroup->id = 1;
         $expectedGroup-> url = "/groups/1";
         $expectedGroup->name = "admin";
+        $expectedGroup->created = $group->getCreated()->format(\Pollex\Entity\Base::DATE_FORMAT);
+        $expectedGroup->updated = $group->getUpdated()->format(\Pollex\Entity\Base::DATE_FORMAT);
         $expected->groups = array($expectedGroup);
         $expected->created = $this->_user->getCreated()->format(Entity\Base::DATE_FORMAT);
         $expected->updated = $this->_user->getUpdated()->format(Entity\Base::DATE_FORMAT);

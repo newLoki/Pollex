@@ -53,4 +53,20 @@ class GroupTest extends \Tests\TestCase
     {
         $this->assertEquals('group', $this->_group->getEntityType());
     }
+
+    public function testOutputObject()
+    {
+        $this->_group->setName('admin');
+        $this->_group->setId(1);
+        $this->_group->createUpdateDateTime();
+
+        $expectedGroup = new \stdClass();
+        $expectedGroup->id = 1;
+        $expectedGroup-> url = "/groups/1";
+        $expectedGroup->name = "admin";
+        $expectedGroup->created = $this->_group->getCreated()->format(\Pollex\Entity\Base::DATE_FORMAT);
+        $expectedGroup->updated = $this->_group->getUpdated()->format(\Pollex\Entity\Base::DATE_FORMAT);
+
+        $this->assertEquals($expectedGroup, $this->_group->getOutputObject());
+    }
 }

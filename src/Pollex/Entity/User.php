@@ -196,11 +196,7 @@ class User extends Base
         $baseObject->birthdate = $this->getBirthdate()->format(self::DATE_BIRTH);
         $baseObject->groups = array();
         foreach ($this->getGroups() as $group) {
-            $groupObject = new \stdClass();
-            $groupObject->id = $group->getId();
-            $groupObject->url = $group->getUrl();
-            $groupObject->name = $group->getName();
-            $baseObject->groups[] = $groupObject;
+            $baseObject->groups[] = $group->getOutputObject();
         }
 
         return $baseObject;
