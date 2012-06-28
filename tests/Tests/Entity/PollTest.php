@@ -117,7 +117,6 @@ class PollTest extends \Tests\TestCase
                  }
          */
         $user = new Entity\User();
-        $user->createUpdateDateTime();
         $user->setId(1);
         $user->setSurname('John');
         $user->setLastname('Doe');
@@ -126,13 +125,11 @@ class PollTest extends \Tests\TestCase
         $group = new Entity\Group();
         $group->setId(1);
         $group->setName('admin');
-        $group->createUpdateDateTime();
         $user->addGroup($group);
 
         $this->_poll->setId(1);
         $this->_poll->setAuthor($user);
         $this->_poll->setName('foo');
-        $this->_poll->createUpdateDateTime();
         $this->_poll->setDescription('Long description');
         $this->_poll->setAuthor($user);
 

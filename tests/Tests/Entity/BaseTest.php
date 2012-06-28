@@ -69,7 +69,6 @@ class BaseTest extends \Tests\TestCase
 
     public function testGetOutputObject()
     {
-        $this->_entity->createUpdateDateTime();
         $this->_entity->setId(1);
 
         $expected = new \stdClass();

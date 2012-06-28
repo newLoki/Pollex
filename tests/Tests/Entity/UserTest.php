@@ -78,7 +78,6 @@ class UserTest extends \Tests\TestCase
 
     public function testOutputObject()
     {
-        $this->_user->createUpdateDateTime();
         $this->_user->setId(1);
         $this->_user->setSurname('John');
         $this->_user->setLastname('Doe');
@@ -87,7 +86,6 @@ class UserTest extends \Tests\TestCase
         $group = new Entity\Group();
         $group->setId(1);
         $group->setName('admin');
-        $group->createUpdateDateTime();
         $this->_user->addGroup($group);
 
 

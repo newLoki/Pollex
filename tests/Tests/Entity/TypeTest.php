@@ -57,7 +57,6 @@ class TypeTest extends \Tests\TestCase
          */
         $this->_type->setId(1);
         $this->_type->setName('rating');
-        $this->_type->createUpdateDateTime();
 
         $expected = new \stdClass();
         $expected->id = 1;

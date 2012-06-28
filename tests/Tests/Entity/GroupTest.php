@@ -58,7 +58,6 @@ class GroupTest extends \Tests\TestCase
     {
         $this->_group->setName('admin');
         $this->_group->setId(1);
-        $this->_group->createUpdateDateTime();
 
         $expectedGroup = new \stdClass();
         $expectedGroup->id = 1;
