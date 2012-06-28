@@ -188,6 +188,7 @@ class User extends Base
         return $this->groups;
     }
 
+    /** @inheritdoc */
     public function getOutputObject()
     {
         $baseObject = parent::getOutputObject();

@@ -129,6 +129,7 @@ class Answer extends \Pollex\Entity\Base
         return (string) $this->value;
     }
 
+    /** @inheritdoc */
     public function getOutputObject()
     {
         $baseObject = parent::getOutputObject();

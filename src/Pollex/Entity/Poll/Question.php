@@ -148,11 +148,17 @@ class Question extends \Pollex\Entity\Base
         return $this->answers;
     }
 
+    /**
+     * Add a answer to this question
+     *
+     * @param \Pollex\Entity\Poll\Question\Answer $_answer
+     */
     public function addAnswer(\Pollex\Entity\Poll\Question\Answer $_answer)
     {
         $this->answers[] = $_answer;
     }
 
+    /** @inheritdoc */
     public function getOutputObject()
     {
         $baseObject = parent::getOutputObject();
