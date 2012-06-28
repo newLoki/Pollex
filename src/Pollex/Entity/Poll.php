@@ -108,4 +108,19 @@ class Poll extends Base
     {
         return $this->questions;
     }
+
+    /** @inheritdoc */
+    public function getOutputObject()
+    {
+        $baseObject = parent::getOutputObject();
+        $baseObject->name = $this->getName();
+        $baseObject->author = $this->getAuthor()->getOutputObject();
+        $baseObject->description = $this->getDescription();
+        $baseObject->questions = new \stdClass();
+        $questions = $this->getQuestions();
+        $baseObject->questions->url = $questions[0]->getUrl();
+        $baseObject->questions->data = array();
+
+        return $baseObject;
+    }
 }

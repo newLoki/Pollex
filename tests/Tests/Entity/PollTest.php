@@ -14,6 +14,7 @@ class PollTest extends \Tests\TestCase
 
     public function setUp()
     {
+        parent::setUp();
         $this->_poll = new Entity\Poll();
     }
 
@@ -97,5 +98,78 @@ class PollTest extends \Tests\TestCase
             );
         }
 
+    }
+
+    public function testOutputObject()
+    {
+        /**
+         * {
+                 id: 1337,
+                 url: '/polls/1337',
+                 name: 'foo',
+                 author: 'user', => should be an object
+                 created: '2012-07-05T14:16:00',
+                 updated: '2012-07-05T14:16:00',
+                 description: 'description for survey',
+                 questions: {
+                     url: '/polls/1337/questions',
+                     data: [],
+                 }
+         */
+        $user = new Entity\User();
+        $user->createUpdateDateTime();
+        $user->setId(1);
+        $user->setSurname('John');
+        $user->setLastname('Doe');
+        $birthDate = \DateTime::createFromFormat('Y-m-d', '1982-07-05');
+        $user->setBirthdate($birthDate);
+        $group = new Entity\Group();
+        $group->setId(1);
+        $group->setName('admin');
+        $group->createUpdateDateTime();
+        $user->addGroup($group);
+
+        $this->_poll->setId(1);
+        $this->_poll->setAuthor($user);
+        $this->_poll->setName('foo');
+        $this->_poll->createUpdateDateTime();
+        $this->_poll->setDescription('Long description');
+        $this->_poll->setAuthor($user);
+
+        $questions = new Entity\Poll\Question();
+        $questions->setPoll($this->_poll);
+
+        $this->_poll->addQuestion($questions);
+
+        $expected = new \stdClass();
+        $expected->id = 1;
+        $expected->url = '/polls/1';
+        $expected->name = 'foo';
+        $expected->author = new \stdClass();
+        $expected->author->id = 1;
+        $expected->author->surname = 'John';
+        $expected->author->lastname = 'Doe';
+        $expected->author->birthdate = '1982-07-05';
+        $expected->author->url = "/users/1";
+        $expected->author->created = $user->getCreated()->format(\Pollex\Entity\Base::DATE_FORMAT);
+        $expected->author->updated = $user->getUpdated()->format(\Pollex\Entity\Base::DATE_FORMAT);
+
+        $expectedGroup = new \stdClass();
+        $expectedGroup->id = 1;
+        $expectedGroup->url = "/groups/1";
+        $expectedGroup->name = "admin";
+        $expectedGroup->created = $group->getCreated()->format(\Pollex\Entity\Base::DATE_FORMAT);
+        $expectedGroup->updated = $group->getUpdated()->format(\Pollex\Entity\Base::DATE_FORMAT);
+
+        $expected->author->groups = array($expectedGroup);
+
+        $expected->created = $this->_poll->getCreated()->format(\Pollex\Entity\Base::DATE_FORMAT);
+        $expected->updated = $this->_poll->getUpdated()->format(\Pollex\Entity\Base::DATE_FORMAT);
+        $expected->description = "Long description";
+        $expected->questions = new \stdClass();
+        $expected->questions->url = '/polls/1/questions/'; //makes no sense to have a question id here, this will link to a question
+        $expected->questions->data = array();
+
+        $this->assertEquals($expected, $this->_poll->getOutputObject());
     }
 }
