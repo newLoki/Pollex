@@ -17,6 +17,14 @@ class Answer extends \Pollex\Entity\Base
     protected $question;
 
     /**
+     * @Column(type="integer", name="type_id")
+     * @ManyToOne(targetEntity="\Pollex\Entity\Type")
+     * @JoinColumn(name="type_id", referencedColumnName="id")
+     * @var \Pollex\Entity\Type
+     */
+    protected $type;
+
+    /**
      * set question which is related to this answers
      *
      * @param \Pollex\Entity\Poll\Question $question
@@ -45,5 +53,25 @@ class Answer extends \Pollex\Entity\Base
         );
 
         return array_merge($questionParts, $answerParts);
+    }
+
+    /**
+     * Set question type to which this answers is related to
+     *
+     * @param \Pollex\Entity\Type $type
+     */
+    public function setType(\Pollex\Entity\Type $type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * Get type of this answer
+     *
+     * @return \Pollex\Entity\Type
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 }

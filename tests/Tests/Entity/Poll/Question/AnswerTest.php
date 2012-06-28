@@ -60,11 +60,16 @@ class AnswerTest extends \Tests\TestCase
 
         $this->assertEquals($expected, $this->_answer->getUrl());
     }
+
+    public function testType()
+    {
+        $mockType = $this->_mockContainer->getType(1);
+        $this->_answer->setType($mockType);
+        $this->assertEquals(1, $this->_answer->getType()->getId());
+    }
     /**
-     * - url (urlParts)
      * - type
      *  - poll
-     *  - question
      *  - value
      */
 }
