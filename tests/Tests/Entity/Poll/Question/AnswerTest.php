@@ -67,9 +67,15 @@ class AnswerTest extends \Tests\TestCase
         $this->_answer->setType($mockType);
         $this->assertEquals(1, $this->_answer->getType()->getId());
     }
+
+    public function testPoll()
+    {
+        $mockPoll = $this->_mockContainer->getPoll(1);
+        $this->_answer->setPoll($mockPoll);
+
+        $this->assertEquals(1, $this->_answer->getPoll()->getId());
+    }
     /**
-     * - type
-     *  - poll
      *  - value
      */
 }

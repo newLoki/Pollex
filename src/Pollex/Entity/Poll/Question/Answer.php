@@ -25,6 +25,14 @@ class Answer extends \Pollex\Entity\Base
     protected $type;
 
     /**
+     * @Column(type="integer", name="poll_id")
+     * @ManyToOne(targetEntity="\Pollex\Entity\Poll")
+     * @JoinColumn(name="poll_id", referencedColumnName="id")
+     * @var \Pollex\Entity\Poll
+     */
+    protected $poll;
+
+    /**
      * set question which is related to this answers
      *
      * @param \Pollex\Entity\Poll\Question $question
@@ -73,5 +81,25 @@ class Answer extends \Pollex\Entity\Base
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * Set poll to which this answer is related to
+     *
+     * @param \Pollex\Entity\Poll $poll
+     */
+    public function setPoll(\Pollex\Entity\Poll $poll)
+    {
+        $this->poll = $poll;
+    }
+
+    /**
+     * Get poll, related to this answers
+     *
+     * @return \Pollex\Entity\Poll
+     */
+    public function getPoll()
+    {
+        return $this->poll;
     }
 }
