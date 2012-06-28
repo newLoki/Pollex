@@ -105,4 +105,43 @@ class QuestionTest extends \Tests\TestCase
         $this->assertEquals(1, $answers[0]->getId());
         $this->assertEquals(2, $answers[1]->getId());
     }
+
+    public function testOutputObject()
+    {
+
+
+        $this->_question->setId(1);
+        $poll = new \Pollex\Entity\Poll();
+        $poll->setId(1337);
+        $this->_question->setPoll($poll);
+        $type = new \Pollex\Entity\Type();
+        $type->setId(2);
+        $type->setName('free');
+        $this->_question->setType($type);
+        $this->_question->setTitle('fooo');
+        $this->_question->setValue('lorem ipsum');
+
+
+        $expected = new \stdClass();
+        $expected->id = 1;
+        $expected->poll = 1337;
+        $expected->url = '/polls/1337/questions/1';
+        $expectedType = new \stdClass();
+        $expectedType->id = 2;
+        $expectedType->name = "free";
+        $expectedType->url = "/types/2";
+        $expectedType->created = $type->getCreated()->format(\Pollex\Entity\Base::DATE_FORMAT);
+        $expectedType->updated = $type->getUpdated()->format(\Pollex\Entity\Base::DATE_FORMAT);
+        $expected->type = $expectedType;
+        $expected->created = $this->_question->getCreated()->format(\Pollex\Entity\Base::DATE_FORMAT);
+        $expected->updated = $this->_question->getUpdated()->format(\Pollex\Entity\Base::DATE_FORMAT);
+        $expected->title = "fooo";
+        $expected->value = 'lorem ipsum';
+        $expectedAnswers = new \stdClass();
+        $expectedAnswers->url = '/polls/1337/questions/1/answers';
+        $expectedAnswers->data = array();
+        $expected->answers = $expectedAnswers;
+
+        $this->assertEquals($expected, $this->_question->getOutputObject());
+    }
 }

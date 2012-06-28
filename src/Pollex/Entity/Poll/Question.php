@@ -152,4 +152,18 @@ class Question extends \Pollex\Entity\Base
     {
         $this->answers[] = $_answer;
     }
+
+    public function getOutputObject()
+    {
+        $baseObject = parent::getOutputObject();
+        $baseObject->poll = $this->getPoll()->getId();
+        $baseObject->type = $this->getType()->getOutputObject();
+        $baseObject->title = $this->getTitle();
+        $baseObject->value = $this->getValue();
+        $baseObject->answers = new \stdClass();
+        $baseObject->answers->url = $this->getUrl() . '/answers';
+        $baseObject->answers->data = array();
+
+        return $baseObject;
+    }
 }
