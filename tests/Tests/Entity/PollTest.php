@@ -102,20 +102,6 @@ class PollTest extends \Tests\TestCase
 
     public function testOutputObject()
     {
-        /**
-         * {
-                 id: 1337,
-                 url: '/polls/1337',
-                 name: 'foo',
-                 author: 'user', => should be an object
-                 created: '2012-07-05T14:16:00',
-                 updated: '2012-07-05T14:16:00',
-                 description: 'description for survey',
-                 questions: {
-                     url: '/polls/1337/questions',
-                     data: [],
-                 }
-         */
         $user = new Entity\User();
         $user->setId(1);
         $user->setSurname('John');
