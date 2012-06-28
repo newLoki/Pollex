@@ -25,15 +25,28 @@ class MockContainer extends \PHPUnit_Framework_TestCase
         return $mockPoll;
     }
 
+    public function getQuestion($id)
+    {
+        $mockQuestion = $this->getMock('\Pollex\Entity\Poll\Question');
+        $mockQuestion->expects($this->any())
+                     ->method('getId')
+                     ->will($this->returnValue($id));
+        $mockQuestion->expects($this->any())
+                     ->method('getEntityType')
+                     ->will($this->returnValue('question'));
+
+        return $mockQuestion;
+    }
+
     public function getAnswer($id)
     {
         $mockAnswer = $this->getMock('\Pollex\Entity\Poll\Question\Answer');
         $mockAnswer->expects($this->any())
-            ->method('getEntityType')
-            ->will($this->returnValue('question'));
+                   ->method('getEntityType')
+                   ->will($this->returnValue('answer'));
         $mockAnswer->expects($this->any())
-            ->method('getId')
-            ->will($this->returnValue($id));
+                   ->method('getId')
+                   ->will($this->returnValue($id));
         return $mockAnswer;
     }
 
@@ -48,4 +61,20 @@ class MockContainer extends \PHPUnit_Framework_TestCase
                  ->will($this->returnValue($id));
         return $mockType;
     }
+
+    public function getQuestionWithPoll($questionId, $pollId)
+    {
+        $mockQuestion = $this->getMock('\Pollex\Entity\Poll\Question');
+        $mockQuestion->expects($this->any())
+                     ->method("getUrlParts")
+                     ->will($this->returnValue(array(
+                         'polls',
+                         $pollId,
+                         'questions',
+                         $questionId
+                     )));
+
+        return $mockQuestion;
+    }
+
 }
