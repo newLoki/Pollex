@@ -48,6 +48,18 @@ class AnswerTest extends \Tests\TestCase
 
         $this->assertEquals($expected, $this->_answer->getUrlParts());
     }
+
+    public function testGetUrl()
+    {
+        $mockQuestion = $this->_mockContainer->getQuestionWithPoll(2, 1);
+
+        $this->_answer->setId(3);
+        $this->_answer->setQuestion($mockQuestion);
+
+        $expected = '/polls/1/questions/2/answers/3';
+
+        $this->assertEquals($expected, $this->_answer->getUrl());
+    }
     /**
      * - url (urlParts)
      * - type
