@@ -45,4 +45,27 @@ class TypeTest extends \Tests\TestCase
 
         $this->assertEquals("rating", $this->_type->getName());
     }
+
+    public function testGetOutputObject()
+    {
+        /**
+         * type: {
+                         id: 2,
+                         name: 'rating',
+                         url: '/types/2'
+                     }
+         */
+        $this->_type->setId(1);
+        $this->_type->setName('rating');
+        $this->_type->createUpdateDateTime();
+
+        $expected = new \stdClass();
+        $expected->id = 1;
+        $expected->name = "rating";
+        $expected->url = "/types/1";
+        $expected->created = $this->_type->getCreated()->format(\Pollex\Entity\Base::DATE_FORMAT);
+        $expected->updated = $this->_type->getUpdated()->format(\Pollex\Entity\Base::DATE_FORMAT);
+
+        $this->assertEquals($expected, $this->_type->getOutputObject());
+    }
 }

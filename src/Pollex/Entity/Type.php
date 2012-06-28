@@ -32,4 +32,18 @@ class Type extends \Pollex\Entity\Base
     {
         return $this->name;
     }
+
+
+    /**
+     * Return output object for type
+     *
+     * @return \stdClass
+     */
+    public function getOutputObject()
+    {
+        $baseObject = parent::getOutputObject();
+        $baseObject->name = $this->getName();
+
+        return $baseObject;
+    }
 }
