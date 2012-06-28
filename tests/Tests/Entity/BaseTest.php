@@ -54,6 +54,20 @@ class BaseTest extends \Tests\TestCase
         $this->_entity->setId(1);
         $this->assertEquals(array('fakes', 1), $this->_entity->getUrlParts());
     }
+
+    public function testGetOutputObject()
+    {
+        $this->_entity->createUpdateDateTime();
+        $this->_entity->setId(1);
+
+        $expected = new \stdClass();
+        $expected->id = 1;
+        $expected->url = '/fakes/1';
+        $expected->created = $this->_entity->getCreated()->format(Entity\Base::DATE_FORMAT);
+        $expected->updated = $this->_entity->getUpdated()->format(Entity\Base::DATE_FORMAT);
+
+        $this->assertEquals($expected, $this->_entity->getOutputObject());
+    }
 }
 
 /** This exists only to test abstract class */

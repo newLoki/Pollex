@@ -8,6 +8,8 @@ namespace Pollex\Entity;
 */
 abstract class Base
 {
+    const DATE_FORMAT = 'Y-m-d\TH:i:s';
+
     /**
      * @Id
      * @Column(type="integer")
@@ -88,6 +90,11 @@ abstract class Base
         $this->id = (int) $id;
     }
 
+    /**
+     * Return the type of the entity
+     *
+     * @return string
+     */
     public function getEntityType()
     {
         $fullClass = get_class($this);
@@ -96,6 +103,11 @@ abstract class Base
         return strtolower(array_pop($parts));
     }
 
+    /**
+     * Return all parts as array for building an url to this entity
+     *
+     * @return array
+     */
     public function getUrlParts()
     {
         $parts = array(
@@ -106,6 +118,11 @@ abstract class Base
         return $parts;
     }
 
+    /**
+     * Return url to this entity
+     *
+     * @return string
+     */
     public function getUrl()
     {
         $urlParts =  $this->getUrlParts();
@@ -115,8 +132,30 @@ abstract class Base
         return $url;
     }
 
+    /**
+     * pluralizes a string for preparing url parts
+     *
+     * @param $base
+     * @return string
+     */
     protected function _pluralizeForUrl($base)
     {
         return $base . 's';
+    }
+
+    /**
+     * Return a obeject representation for this entity
+     *
+     * @return \stdClass
+     */
+    public function getOutputObject()
+    {
+        $entityProperties = new \stdClass();
+        $entityProperties->id = $this->getId();
+        $entityProperties->url = $this->getUrl();
+        $entityProperties->created = $this->getCreated()->format(self::DATE_FORMAT);
+        $entityProperties->updated = $this->getUpdated()->format(self::DATE_FORMAT);
+
+        return $entityProperties;
     }
 }
