@@ -1,4 +1,7 @@
 www:
   type: php
+  prebuild:
+  - "wget http://getcomposer.org/composer.phar"
+  - "php composer.phar install"
 data:
   type: mysql
