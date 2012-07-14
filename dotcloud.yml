@@ -1,5 +1,5 @@
 www:
   type: php
-  prebuild: "wget http://getcomposer.org/composer.phar && php composer.phar install"
+  prebuild: ./install.sh
 data:
   type: mysql
