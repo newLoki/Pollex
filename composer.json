@@ -12,9 +12,9 @@
     }],
     "require": {
         "php": ">=5.3.2",
-        "silex/silex": "1.0.*",
+        "silex/silex": "dev-master",
         "doctrine/orm": "2.1.*",
-        "nutwerk/doctrine-orm-provider": "*",
+        "nutwerk/doctrine-orm-provider": "dev-master",
         "symfony/config": "*"
     }
 }
