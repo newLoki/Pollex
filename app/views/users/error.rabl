@@ -1,3 +1,3 @@
 object @errors
 
-attributes :message
+attributes :messages
