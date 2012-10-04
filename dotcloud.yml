@@ -1,5 +1,0 @@
-www:
-  type: php
-  prebuild: ./install.sh
-data:
-  type: mysql
