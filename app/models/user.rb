@@ -1,3 +1,6 @@
+#ensure that the mail validation gem is loaded
+require 'valid_email'
+
 class User < ActiveRecord::Base
   attr_accessible :birthdate, :email, :lastname, :surname
   has_many :polls
