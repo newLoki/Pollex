@@ -9,7 +9,7 @@ gem 'rabl'
 gem "oauth-plugin", "~> 0.4.0"
 
 #gem for email validation
-gem 'email_validator'
+gem 'valid_email'
 
 #gem for date validation
 gem "validates_date_time", "~> 1.0.0"
