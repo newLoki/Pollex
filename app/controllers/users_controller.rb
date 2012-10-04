@@ -18,14 +18,22 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
 
-    respond_to do |format|
-      if @user.save?
-        format.xml   { render :xml => @user, :status => :created, :location => @user }
-        format.json  { render :json => @user, :status => :created, :location => @user }
-      else
-        format.xml { render :xml => @user.errors, :status => :unprocessable_entity }
-        format.json { render :json => @user.errors, :status => :unprocessable_entity }
-      end
+    if @user.valid?
+      @user.save
+      render :create, :status => :ok, :formats => [:xml, :json]
+    else
+      render @user.errors, :status => :conflict, :formats => [:xml, :json]
     end
   end
+
+#  def update
+#    @user = User.find(params[:id])
+#    
+#    if @user.update_attributes(params[:user])?
+#      render { :head  => :ok }
+#    else
+#      render { @user.errors, :status => :unprocessable_entity }
+#   end
+#
+#  end
 end
