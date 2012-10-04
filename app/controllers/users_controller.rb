@@ -17,8 +17,6 @@ class UsersController < ApplicationController
     if @user.nil?
       @errors = { :message => "No user with id #{params[:id]} found" }
       render :error, :status => 404, :formats => [:json]
-    else 
-      render @user, :status => :ok, :formats => [:json]
     end
   end
 
