@@ -13,6 +13,13 @@ class UsersController < ApplicationController
   #method to find a user by given id
   def show
     @user = User.find_by_id(params[:id])
+    
+    if @user.nil?
+      @errors = { :message => "No user with id #{params[:id]} found" }
+      render :error, :status => 404, :formats => [:json]
+    else 
+      render @user, :status => :ok, :formats => [:json]
+    end
   end
 
   def create
@@ -21,7 +28,8 @@ class UsersController < ApplicationController
       @user.save
       render :create, :status => :ok, :formats => [:json]
     else
-      render @user.errors, :status => :conflict, :formats => [:json]
+      @errors = @user.errors
+      render :error, :status => :conflict, :formats => [:json]
     end
   end
 
@@ -29,8 +37,8 @@ class UsersController < ApplicationController
     @user = User.find_by_id(params[:id])
 
     if @user.nil?
-      @user = { :errors => "No user with id #{params[:id]} found"}
-      render @user , :status => 404, :formats => [:json]
+      @errors = { :message => "No user with id #{params[:id]} found" }
+      render :error, :status => 404, :formats => [:json]
     else
       @user.update_attributes(JSON.parse(params[:user]))
       
@@ -38,7 +46,8 @@ class UsersController < ApplicationController
         @user.save
         render :update, :status => :ok, :formats => [:json]
       else
-        render @user.errors, :status => :conflict, :formats => [:json]
+        @errors = @user.errors
+        render :error, :status => :conflict, :formats => [:json]
       end
     end
   end
@@ -47,8 +56,8 @@ class UsersController < ApplicationController
     @user = User.find_by_id(params[:id])
     
     if @user.nil?
-      @user = { :errors => "No user with id #{params[:id]} found"}
-      render @user , :status => 404, :formats => [:json]
+      @errors = { :message => "No user with id #{params[:id]} found" }
+      render :error, :status => 404, :formats => [:json]
     else
       @user.destroy
       render :destroy, :status => :ok, :formats => [:json]
