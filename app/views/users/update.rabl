@@ -1,0 +1,4 @@
+object @user
+
+attribute :id
+
