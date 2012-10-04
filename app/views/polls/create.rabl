@@ -1,0 +1,4 @@
+object @polls
+
+attribute :id
+

@@ -11,4 +11,15 @@ class PollsController < ApplicationController
       render :error, :status => 404, :formats => [:json]
     end
   end
+
+  def create
+    @polls = Poll.new(JSON.parse(params[:poll]))
+
+    unless @polls.valid?
+      @errors = @polls.errors
+      render :error, :status => :conflict, :formats => [:json]
+    else
+      @polls.save
+    end
+  end
 end
