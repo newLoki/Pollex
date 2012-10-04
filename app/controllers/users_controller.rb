@@ -16,8 +16,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user])
-
+    @user = User.new(JSON.parse(params[:user]))
     if @user.valid?
       @user.save
       render :create, :status => :ok, :formats => [:xml, :json]
