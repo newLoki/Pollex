@@ -1,10 +1,10 @@
 Pollex::Application.routes.draw do
 
-  resource :users
-  resource :polls
-  resource :questions
-  resource :answers
-  resource :groups
+  resources :users
+  resources :polls
+  resources :questions
+  resources :answers
+  resources :groups
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
