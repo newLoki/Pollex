@@ -1,7 +1,5 @@
-#ensure that the mail validation gem is loaded
-require 'valid_email'
-
 class User < ActiveRecord::Base
+
   attr_accessible :birthdate, :email, :lastname, :surname
   has_many :polls
   has_many :questions
@@ -19,6 +17,14 @@ class User < ActiveRecord::Base
                           :message => "Only letters allowed"
                         }
   validates :email, :presence => true,
-                    :email => true
-  validates_date :birthdate
+                    :uniqueness => true,
+                    :format => { 
+                      :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i,
+                      :message => 'This is not an email address'
+                    }
+  validates :birthdate, :presence => true,
+                        :format => {
+                          :with => /^(19|20)\d\d[- \/.](0[1-9]|1[012])[- \/.](0[1-9]|[12][0-9]|3[01])$/,
+                          :message => 'Date should formatted like yyyy-mm-dd'
+                    }
 end
