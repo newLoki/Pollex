@@ -5,6 +5,9 @@ gem 'rails', '3.2.8'
 #use rabl extension, which provides a REST DSL for rails
 gem 'rabl'
 
+#install oauth plugin
+gem "oauth-plugin", "~> 0.4.0"
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
