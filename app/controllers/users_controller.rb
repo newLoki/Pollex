@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   #before_filter :oauth_required
 
   #ensure that it can return json and xml
-  respond_to :json, :xml
+  respond_to :json
 
   #method to list all users
   def index
@@ -19,20 +19,39 @@ class UsersController < ApplicationController
     @user = User.new(JSON.parse(params[:user]))
     if @user.valid?
       @user.save
-      render :create, :status => :ok, :formats => [:xml, :json]
+      render :create, :status => :ok, :formats => [:json]
     else
-      render @user.errors, :status => :conflict, :formats => [:xml, :json]
+      render @user.errors, :status => :conflict, :formats => [:json]
     end
   end
 
-#  def update
-#    @user = User.find(params[:id])
-#    
-#    if @user.update_attributes(params[:user])?
-#      render { :head  => :ok }
-#    else
-#      render { @user.errors, :status => :unprocessable_entity }
-#   end
-#
-#  end
+  def update
+    @user = User.find_by_id(params[:id])
+
+    if @user.nil?
+      @user = { :errors => "No user with id #{params[:id]} found"}
+      render @user , :status => 404, :formats => [:json]
+    else
+      @user.update_attributes(JSON.parse(params[:user]))
+      
+      if @user.valid?
+        @user.save
+        render :update, :status => :ok, :formats => [:json]
+      else
+        render @user.errors, :status => :conflict, :formats => [:json]
+      end
+    end
+  end
+
+  def destroy
+    @user = User.find_by_id(params[:id])
+    
+    if @user.nil?
+      @user = { :errors => "No user with id #{params[:id]} found"}
+      render @user , :status => 404, :formats => [:json]
+    else
+      @user.destroy
+      render :destroy, :status => :ok, :formats => [:json]
+    end
+  end
 end
