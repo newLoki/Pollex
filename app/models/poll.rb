@@ -13,4 +13,5 @@ class Poll < ActiveRecord::Base
                       :with => /\A[a-zA-Z\.\?! -_]+\z/,
                       :message => "Only letters, ?!-_. and whitespaces allowed"
                   }
+  validates_presence_of :user
 end
