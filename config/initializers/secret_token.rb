@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Pollex::Application.config.secret_token = '241d7f1934e0bb325a56479e6d79e9bc8edf3206977cc4b0d244505150362956190701d6ce2da54c70eff767352aa9ac77d746fad20ca1accdb4e8bcd4183c20'
+Pollex::Application.config.secret_token = '11259f8c7a3820229be906ff7ef4358230c13e950acc8ae3644146b0ea1e4f46eb136646db5d02ba77c7c40f1141cab63a92d0c38b5e1aafef4b28b1cbe33803'
