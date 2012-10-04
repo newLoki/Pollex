@@ -17,5 +17,5 @@ class User < ActiveRecord::Base
                         }
   validates :email, :presence => true,
                     :email => true
-  validates :birthdate
+  validates_date :birthdate
 end

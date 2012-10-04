@@ -11,6 +11,9 @@ gem "oauth-plugin", "~> 0.4.0"
 #gem for email validation
 gem 'email_validator'
 
+#gem for date validation
+gem "validates_date_time", "~> 1.0.0"
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
