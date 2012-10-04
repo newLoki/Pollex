@@ -1,5 +1,4 @@
 Pollex::Application.routes.draw do
-
   resources :users
   resources :polls
   resources :questions
