@@ -4,4 +4,18 @@ class User < ActiveRecord::Base
   has_many :questions
   has_many :groups
   has_many :answers
+
+  validates :surname, :presence => true,
+                      :format => {
+                        :with => /\A[a-zA-Z]+\z/,
+                        :message => "Only letters allowed"
+                      }
+  validates :lastname,  :presence => true,
+                        :format => {
+                          :with => /\A[a-zA-Z]+\z/,
+                          :message => "Only letters allowed"
+                        }
+  validates :email, :presence => true,
+                    :email => true
+  validates :birthdate
 end
