@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   #require oauth login before any action is performed
-  before_filter :oauth_required
+  #before_filter :oauth_required
 
   #ensure that it can return json and xml
   respond_to :json, :xml
