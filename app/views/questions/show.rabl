@@ -1,6 +1,6 @@
 object @question
 
-attributes :title, :body
+attributes :title, :type_id, :value
 
 child :poll do
   extends "polls/show"

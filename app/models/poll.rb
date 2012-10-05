@@ -5,13 +5,13 @@ class Poll < ActiveRecord::Base
 
   validates :title, :presence => true,
                     :format => {
-                      :with => /\A[a-zA-Z\.\?! -_]+\z/,
-                      :message => "Only letters, ?!-_. and whitespaces allowed"
+                      :with => /\A[a-z0-9\.\?! -_]+\z/i,
+                      :message => "Only letters, numbers, ?!-_. and whitespaces allowed"
                     }
   validates :body, :presence => true,
                    :format => {
-                      :with => /\A[a-zA-Z\.\?! -_]+\z/,
-                      :message => "Only letters, ?!-_. and whitespaces allowed"
+                      :with => /\A[a-z0-9\.\?! -_]+\z/i,
+                      :message => "Only letters, numbers, ?!-_. and whitespaces allowed"
                   }
   validates_presence_of :user
 end
