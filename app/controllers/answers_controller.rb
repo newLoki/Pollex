@@ -93,4 +93,16 @@ class AnswersController < ApplicationController
       end
     end
   end
+
+  def destroy
+    @answers = Answer.find_by_id(params[:id])
+
+    if @answer.nil?
+      @errors = { :messages => "No answer with id #{params[:id]} found" }
+      render :error, :status => 404, :formats => [:json]
+    else
+      @answer.destroy
+      render :destroy, :status => :ok, :formats => [:json]
+    end
+  end
 end
