@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(:version => 20121004004209) do
 
   create_table "answers", :force => true do |t|
     t.integer  "type_id"
-    t.integer  "poll_id"
     t.integer  "question_id"
     t.text     "value"
     t.datetime "created_at",  :null => false
