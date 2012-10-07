@@ -2,8 +2,7 @@ class QuestionsController < ApplicationController
   def index
     @poll = Poll.find_by_id(params[:poll_id])
     if @poll.nil?
-      @errors = { :messages => "No poll with id #{params[:poll_id]} found" }
-      render :error, :status => 404, :formats => [:json]
+      head :not_found
     else
       @questions = @poll.questions
     end
@@ -12,14 +11,12 @@ class QuestionsController < ApplicationController
   def show
     @poll = Poll.find_by_id(params[:poll_id])
     if @poll.nil?
-      @errors = { :messages => "No poll with id #{params[:poll_id]} found" }
-      render :error, :status => 404, :formats => [:json]
+      head :not_found
     else
       @question = @poll.questions.find_by_id(params[:id])
 
       if @question.nil?
-        @errors = { :messages => "No question with id #{params[:id]} found" }
-        render :error, :status => 404, :formats => [:json]
+        head :not_found
       end
     end
   end
@@ -27,8 +24,7 @@ class QuestionsController < ApplicationController
   def create
     @poll = Poll.find_by_id(params[:poll_id])
     if @poll.nil?
-      @errors = { :messages => "No poll with id #{params[:poll_id]} found" }
-      render :error, :status => 404, :formats => [:json]
+      head :not_found
     else
       @question = Question.new(JSON.parse(params[:question]))
       @question.poll = @poll
@@ -38,7 +34,7 @@ class QuestionsController < ApplicationController
         render :update, :status => :ok, :formats => [:json]
       else
         @errors = @question.errors
-        render :error, :status => :conflict, :formats => [:json]
+        head :conflict
       end
     end
   end
@@ -46,15 +42,13 @@ class QuestionsController < ApplicationController
   def update
     @poll = Poll.find_by_id(params[:poll_id])
     if @poll.nil?
-      @errors = { :messages => "No poll with id #{params[:poll_id]} found" }
-      render :error, :status => 404, :formats => [:json]
+      head :not_found
     else
 
       @question = Question.find_by_id(params[:id])
 
       if @question.nil?
-        @errors = { :messages => "No question with id #{params[:id]} found" }
-        render :error, :status => 404, :formats => [:json]
+        head :not_found
       else
         @question.update_attributes(JSON.parse(params[:question]))
         @question.poll = @poll
@@ -64,7 +58,7 @@ class QuestionsController < ApplicationController
           render :update, :status => :ok, :formats => [:json]
         else
           @errors = @question.errors
-          render :error, :status => :conflict, :formats => [:json]
+          head :conflict
         end
       end
     end
@@ -74,8 +68,7 @@ class QuestionsController < ApplicationController
     @question = Question.find_by_id(params[:id])
 
     if @question.nil?
-      @errors = { :messages => "No question with id #{params[:id]} found" }
-      render :error, :status => 404, :formats => [:json]
+      head :not_found
     else
       @question.destroy
       render :destroy, :status => :ok, :formats => [:json]

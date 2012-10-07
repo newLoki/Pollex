@@ -2,20 +2,17 @@ class AnswersController < ApplicationController
   def show
     @poll = Poll.find_by_id(params[:poll_id])
     if @poll.nil?
-      @errors = { :messages => "No poll with id #{params[:poll_id]} found" }
-      render :error, :status => 404, :formats => [:json]
+      head :not_found
     else
       @question = @poll.questions.find_by_id(params[:question_id])
 
       if @question.nil?
-        @errors = { :messages => "No question with id #{params[:question_id]} found" }
-        render :error, :status => 404, :formats => [:json]
+        head :not_found
       else
         @answer = @question.answers.find_by_id(params[:id])
 
         if @answer.nil?
-          @errors = { :messages => "No answer with id #{params[:id]} found" }
-          render :error, :status => 404, :formats => [:json]
+          head :not_found
         end
       end
     end
@@ -24,14 +21,12 @@ class AnswersController < ApplicationController
   def index
     @poll = Poll.find_by_id(params[:poll_id])
     if @poll.nil?
-      @errors = { :messages => "No poll with id #{params[:poll_id]} found" }
-      render :error, :status => 404, :formats => [:json]
+      head :not_found
     else
       @question = @poll.questions.find_by_id(params[:question_id])
 
       if @question.nil?
-        @errors = { :messages => "No question with id #{params[:question_id]} found" }
-        render :error, :status => 404, :formats => [:json]
+        head :not_found
       else
         @answers = @question.answers.all
       end
@@ -41,14 +36,12 @@ class AnswersController < ApplicationController
   def create
     @poll = Poll.find_by_id(params[:poll_id])
     if @poll.nil?
-      @errors = { :messages => "No poll with id #{params[:poll_id]} found" }
-      render :error, :status => 404, :formats => [:json]
+      head :not_found
     else
       @question = @poll.questions.find_by_id(params[:question_id])
 
       if @question.nil?
-        @errors = { :messages => "No question with id #{params[:question_id]} found" }
-        render :error, :status => 404, :formats => [:json]
+        head :not_found
       else
         @answer = Answer.new(JSON.parse(params[:answer]))
 
@@ -56,8 +49,7 @@ class AnswersController < ApplicationController
           @answer.save
           render :update, :status => :ok, :formats => [:json]
         else
-          @errors = @answer.errors
-          render :error, :status => :conflict, :formats => [:json]
+          head :conflict
         end
       end
     end
@@ -66,19 +58,16 @@ class AnswersController < ApplicationController
   def update
     @poll = Poll.find_by_id(params[:poll_id])
     if @poll.nil?
-      @errors = { :messages => "No poll with id #{params[:poll_id]} found" }
-      render :error, :status => 404, :formats => [:json]
+      head :not_found
     else
       @question = @poll.questions.find_by_id(params[:question_id])
 
       if @question.nil?
-        @errors = { :messages => "No question with id #{params[:question_id]} found" }
-        render :error, :status => 404, :formats => [:json]
+        head :not_found
       else
         @answer = Answer.find_by_id(params[:id])
         if @answer.nil?
-          @errors = { :messages => "No answer with id #{params[:id]} found" }
-          render :error, :status => 404, :formats => [:json]
+          head :not_found
         else
           @answer.update_attributes(JSON.parse(params[:answer]))
 
@@ -86,8 +75,7 @@ class AnswersController < ApplicationController
             @answer.save
             render :update, :status => :ok, :formats => [:json]
           else
-            @errors = @answer.errors
-            render :error, :status => :conflict, :formats => [:json]
+            head :conflict
           end
         end
       end
@@ -98,8 +86,7 @@ class AnswersController < ApplicationController
     @answers = Answer.find_by_id(params[:id])
 
     if @answer.nil?
-      @errors = { :messages => "No answer with id #{params[:id]} found" }
-      render :error, :status => 404, :formats => [:json]
+      head :not_found
     else
       @answer.destroy
       render :destroy, :status => :ok, :formats => [:json]

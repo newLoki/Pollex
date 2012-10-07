@@ -7,8 +7,7 @@ class PollsController < ApplicationController
     @polls = Poll.find_by_id(params[:id])
     
     if @polls.nil?
-      @errors = { :messages => "No poll with id #{params[:id]} found" }
-      render :error, :status => 404, :formats => [:json]
+      head :not_found
     end
   end
 
@@ -18,8 +17,7 @@ class PollsController < ApplicationController
     if  @poll.valid?
       @poll.save
     else
-      @errors = @poll.errors
-      render :error, :status => :conflict, :formats => [:json]
+      head :conflict
     end
   end
 
@@ -27,8 +25,7 @@ class PollsController < ApplicationController
     @poll = Poll.find_by_id(params[:id])
 
     if @poll.nil?
-      @errors = { :messages => "No poll with id #{params[:id]} found" }
-      render :error, :status => 404, :formats => [:json]
+      head :not_found
     else
       @poll.update_attributes(JSON.parse(params[:user]))
 
@@ -36,8 +33,7 @@ class PollsController < ApplicationController
         @poll.save
         render :update, :status => :ok, :formats => [:json]
       else
-        @errors = @poll.errors
-        render :error, :status => :conflict, :formats => [:json]
+        head :conflict
       end
     end
   end
@@ -46,8 +42,7 @@ class PollsController < ApplicationController
     @poll = Poll.find_by_id(params[:id])
 
     if @poll.nil?
-      @errors = { :messages => "No poll with id #{params[:id]} found" }
-      render :error, :status => 404, :formats => [:json]
+      head :not_found
     else
       @poll.destroy
       render :destroy, :status => :ok, :formats => [:json]
